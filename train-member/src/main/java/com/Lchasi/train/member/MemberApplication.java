@@ -14,7 +14,7 @@ public class MemberApplication {
         SpringApplication app = new SpringApplication(MemberApplication.class);
         Environment enx = app.run(args).getEnvironment();//拿到系统环境
         LOG.info("启动成功！！");
-        LOG.info("地址：\thttp://127.0.0.1:{}", enx.getProperty("server.port"));//获得系统端口
+        LOG.info("地址：\thttp://127.0.0.1:{}:{}", enx.getProperty("server.port") ,enx.getProperty("server.servlet.context-path"));//获得系统端口
 //        SpringApplication.run(MemberApplication.class, args);
     }
 
