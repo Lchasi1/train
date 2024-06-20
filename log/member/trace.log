@@ -1,0 +1,35 @@
+2024-06-20 17:49:53.803 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 27880 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-20 17:49:53.804 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-20 17:49:53.893 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=73c499a3-5571-3640-8898-a222d467ce9b
+2024-06-20 17:49:53.921 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-20 17:49:53.922 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-20 17:49:53.922 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-20 17:49:53.941 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-20 17:49:53.942 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 137 ms
+2024-06-20 17:49:53.980 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-20 17:49:55.300 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 17:49:55.312 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-20 17:49:56.609 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 17:49:56.612 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 4.217 seconds (process running for 443.997)
+2024-06-20 17:49:56.613 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   restartedMain [32m                [0;39m Condition evaluation unchanged
+2024-06-20 17:49:56.613 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-20 17:49:56.614 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080
+2024-06-20 17:51:54.244 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 36956 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-20 17:51:54.246 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-20 17:51:54.279 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-20 17:51:54.280 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-20 17:51:54.806 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=73c499a3-5571-3640-8898-a222d467ce9b
+2024-06-20 17:51:55.152 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-20 17:51:55.161 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-20 17:51:55.162 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-20 17:51:55.163 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-20 17:51:55.214 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-20 17:51:55.215 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 934 ms
+2024-06-20 17:51:55.493 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-20 17:51:56.796 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 17:51:56.826 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-20 17:51:56.841 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-20 17:51:58.136 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 17:51:58.143 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 5.53 seconds (process running for 6.291)
+2024-06-20 17:51:58.146 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-20 17:51:58.147 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080
