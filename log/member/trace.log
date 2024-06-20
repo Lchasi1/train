@@ -55,3 +55,25 @@
 2024-06-20 18:02:42.306 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-06-20 18:02:42.307 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
 2024-06-20 18:02:42.307 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 0 ms
+2024-06-20 18:03:35.220 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 6868 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-20 18:03:35.221 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-20 18:03:35.254 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-20 18:03:35.254 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-20 18:03:35.707 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=73c499a3-5571-3640-8898-a222d467ce9b
+2024-06-20 18:03:36.002 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-20 18:03:36.009 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-20 18:03:36.010 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-20 18:03:36.010 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-20 18:03:36.071 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-20 18:03:36.071 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 817 ms
+2024-06-20 18:03:36.305 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-20 18:03:37.599 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 18:03:37.630 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-20 18:03:37.646 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-20 18:03:38.955 INFO  org.springframework.cloud.commons.util.InetUtils  :170  restartedMain [32m                [0;39m Cannot determine local hostname
+2024-06-20 18:03:38.962 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 5.375 seconds (process running for 6.029)
+2024-06-20 18:03:38.965 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-20 18:03:38.966 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-20 18:03:48.043 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-20 18:03:48.044 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-06-20 18:03:48.045 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 1 ms
