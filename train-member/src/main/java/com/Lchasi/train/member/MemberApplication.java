@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 
 @SpringBootApplication
 @ComponentScan("com.Lchasi")//自动扫描并注册components，services,controllers等spring管理的bean
+//@MapperScan("com.Lchasi.train.member.mapper")
 public class MemberApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(MemberApplication.class);
