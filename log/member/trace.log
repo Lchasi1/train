@@ -25,3 +25,271 @@
 2024-06-21 10:57:33.150 INFO  com.Lchasi.train.member.aspect.LogAspect          :72   http-nio-8080-exec-1 [32m                [0;39m 请求参数: []
 2024-06-21 10:57:33.150 INFO  com.Lchasi.train.member.aspect.LogAspect          :84   http-nio-8080-exec-1 [32m                [0;39m 返回结果: "Hello"
 2024-06-21 10:57:33.150 INFO  com.Lchasi.train.member.aspect.LogAspect          :85   http-nio-8080-exec-1 [32m                [0;39m ------------- 结束 耗时：32 ms -------------
+2024-06-21 11:08:12.610 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211  File Watcher [32m                [0;39m Restarting due to 3 class path changes (0 additions, 0 deletions, 3 modifications)
+2024-06-21 11:08:12.613 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  Thread-6 [32m                [0;39m Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:08:13.135 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 19596 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:08:13.135 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:08:13.229 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=c5fa213d-d88a-3a92-b5f6-a43a533ddd64
+2024-06-21 11:08:13.297 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:08:13.298 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:08:13.298 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:08:13.298 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:08:13.317 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:08:13.318 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 181 ms
+2024-06-21 11:08:13.489 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:08:13.865 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:08:13.868 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:08:14.238 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 1.564 seconds (process running for 678.436)
+2024-06-21 11:08:14.239 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   restartedMain [32m                [0;39m Condition evaluation unchanged
+2024-06-21 11:08:14.239 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:08:14.239 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:11:52.658 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-21 11:11:52.659 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-06-21 11:11:52.659 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 0 ms
+2024-06-21 11:11:52.660 INFO  com.Lchasi.train.member.aspect.LogAspect          :48   http-nio-8080-exec-1 [32m                [0;39m ------------- 开始 -------------
+2024-06-21 11:11:52.661 INFO  com.Lchasi.train.member.aspect.LogAspect          :49   http-nio-8080-exec-1 [32m                [0;39m 请求地址: http://localhost:8080/member/hello GET
+2024-06-21 11:11:52.661 INFO  com.Lchasi.train.member.aspect.LogAspect          :50   http-nio-8080-exec-1 [32m                [0;39m 类名方法: com.Lchasi.train.member.controller.TestController.hello
+2024-06-21 11:11:52.661 INFO  com.Lchasi.train.member.aspect.LogAspect          :51   http-nio-8080-exec-1 [32m                [0;39m 远程地址: 127.0.0.1
+2024-06-21 11:11:52.662 INFO  com.Lchasi.train.member.aspect.LogAspect          :72   http-nio-8080-exec-1 [32m                [0;39m 请求参数: []
+2024-06-21 11:11:52.662 INFO  com.Lchasi.train.member.aspect.LogAspect          :84   http-nio-8080-exec-1 [32m                [0;39m 返回结果: "Hello"
+2024-06-21 11:11:52.662 INFO  com.Lchasi.train.member.aspect.LogAspect          :85   http-nio-8080-exec-1 [32m                [0;39m ------------- 结束 耗时：2 ms -------------
+2024-06-21 11:12:07.771 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 21020 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:12:07.772 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:12:07.804 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:12:07.804 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:12:08.287 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:12:08.624 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:12:08.632 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:12:08.633 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:12:08.633 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:12:08.680 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:12:08.680 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 876 ms
+2024-06-21 11:12:08.940 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:12:09.362 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:12:09.378 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:12:09.804 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.76 seconds (process running for 3.543)
+2024-06-21 11:12:09.807 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:12:09.807 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:12:43.144 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-21 11:12:43.145 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-06-21 11:12:43.145 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 0 ms
+2024-06-21 11:14:26.138 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 16708 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:14:26.140 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:14:26.171 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:14:26.172 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:14:26.625 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:14:26.954 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:14:26.963 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:14:26.964 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:14:26.965 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:14:27.012 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:14:27.012 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 840 ms
+2024-06-21 11:14:27.254 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:14:27.680 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:14:27.696 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:14:28.107 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.623 seconds (process running for 3.289)
+2024-06-21 11:14:28.109 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:14:28.110 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:15:39.338 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 27780 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:15:39.340 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:15:39.371 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:15:39.371 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:15:39.871 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:15:40.163 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:15:40.170 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:15:40.171 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:15:40.172 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:15:40.213 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:15:40.214 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 842 ms
+2024-06-21 11:15:40.435 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:15:40.858 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:15:40.874 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:15:41.262 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.624 seconds (process running for 3.306)
+2024-06-21 11:15:41.265 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:15:41.265 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:18:57.970 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 14704 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:18:57.972 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:18:58.003 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:18:58.003 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:18:58.445 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:18:58.757 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:18:58.764 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:18:58.765 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:18:58.765 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:18:58.806 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:18:58.807 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 804 ms
+2024-06-21 11:18:59.034 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:18:59.428 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:18:59.441 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:18:59.812 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.541 seconds (process running for 3.215)
+2024-06-21 11:18:59.814 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:18:59.815 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:19:19.958 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-21 11:19:19.958 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-06-21 11:19:19.959 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-06-21 11:20:26.465 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211  File Watcher [32m                [0;39m Restarting due to 3 class path changes (0 additions, 1 deletion, 2 modifications)
+2024-06-21 11:20:26.468 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  Thread-6 [32m                [0;39m Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:26.931 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 14704 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:20:26.931 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:20:27.046 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:20:27.081 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:20:27.082 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:27.082 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:20:27.082 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:20:27.099 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:20:27.100 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 167 ms
+2024-06-21 11:20:27.138 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:20:27.511 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:27.514 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:20:27.916 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 1.396 seconds (process running for 91.319)
+2024-06-21 11:20:27.917 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   restartedMain [32m                [0;39m Condition evaluation unchanged
+2024-06-21 11:20:27.918 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:20:27.918 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:20:45.326 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211  File Watcher [32m                [0;39m Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+2024-06-21 11:20:45.327 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  Thread-9 [32m                [0;39m Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:45.798 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 14704 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:20:45.798 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:20:45.900 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:20:45.930 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:20:45.931 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:45.931 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:20:45.931 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:20:45.948 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:20:45.949 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 149 ms
+2024-06-21 11:20:45.985 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:20:46.396 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:20:46.400 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:20:46.775 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 1.386 seconds (process running for 110.177)
+2024-06-21 11:20:46.775 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   restartedMain [32m                [0;39m Condition evaluation unchanged
+2024-06-21 11:20:46.775 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:20:46.776 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:21:13.542 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 3024 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:21:13.544 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:21:13.574 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:21:13.575 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:21:14.025 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:21:14.364 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:21:14.374 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:21:14.375 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:21:14.376 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:21:14.423 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:21:14.423 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 848 ms
+2024-06-21 11:21:14.664 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:21:15.093 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:21:15.108 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:21:15.494 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.643 seconds (process running for 3.291)
+2024-06-21 11:21:15.497 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:21:15.497 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:23:02.371 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 5404 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:23:02.373 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:23:02.401 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:23:02.402 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:23:02.847 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:23:03.142 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:23:03.150 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:23:03.151 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:23:03.151 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:23:03.196 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:23:03.196 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 794 ms
+2024-06-21 11:23:03.425 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:23:03.819 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:23:03.834 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:23:04.212 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.526 seconds (process running for 3.205)
+2024-06-21 11:23:04.214 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:23:04.215 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:38:20.213 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 27960 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:38:20.215 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:38:20.244 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:38:20.244 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:38:20.699 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:38:20.990 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:38:20.998 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:38:20.999 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:38:20.999 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:38:21.040 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:38:21.040 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 796 ms
+2024-06-21 11:38:21.282 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:38:21.721 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:38:21.737 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:38:22.159 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.614 seconds (process running for 3.404)
+2024-06-21 11:38:22.162 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:38:22.162 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:39:27.541 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 17892 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:39:27.543 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:39:27.575 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:39:27.575 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:39:28.034 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:39:28.366 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:39:28.374 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:39:28.376 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:39:28.376 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:39:28.421 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:39:28.421 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 845 ms
+2024-06-21 11:39:28.681 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:39:29.163 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:39:29.179 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:39:29.565 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.735 seconds (process running for 3.402)
+2024-06-21 11:39:29.567 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:39:29.567 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:40:22.167 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 8224 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:40:22.169 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:40:22.199 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:40:22.200 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:40:22.649 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=2d1ba178-47f0-370c-9d03-abc059a0f220
+2024-06-21 11:40:22.946 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:40:22.954 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:40:22.956 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:40:22.956 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:40:23.000 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:40:23.000 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 800 ms
+2024-06-21 11:40:23.258 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:40:23.706 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:40:23.723 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:40:24.109 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 2.615 seconds (process running for 3.258)
+2024-06-21 11:40:24.112 INFO  com.Lchasi.train.member.MemberApplication         :16   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:40:24.112 INFO  com.Lchasi.train.member.MemberApplication         :17   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:44:42.874 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 5116 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:44:42.876 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:44:42.906 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-06-21 11:44:42.907 INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor :252  restartedMain [32m                [0;39m For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-06-21 11:44:43.367 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=c5fa213d-d88a-3a92-b5f6-a43a533ddd64
+2024-06-21 11:44:43.831 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:44:43.840 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:44:43.841 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:44:43.841 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:44:43.887 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:44:43.887 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 980 ms
+2024-06-21 11:44:44.340 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:44:44.768 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:44:44.783 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:44:45.191 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 3.06 seconds (process running for 3.723)
+2024-06-21 11:44:45.194 INFO  com.Lchasi.train.member.MemberApplication         :18   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:44:45.194 INFO  com.Lchasi.train.member.MemberApplication         :19   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member
+2024-06-21 11:44:50.356 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  http-nio-8080-exec-1 [32m                [0;39m Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-21 11:44:50.356 INFO  org.springframework.web.servlet.DispatcherServlet :532  http-nio-8080-exec-1 [32m                [0;39m Initializing Servlet 'dispatcherServlet'
+2024-06-21 11:44:50.357 INFO  org.springframework.web.servlet.DispatcherServlet :554  http-nio-8080-exec-1 [32m                [0;39m Completed initialization in 1 ms
+2024-06-21 11:44:50.383 INFO  com.Lchasi.train.common.aspect.LogAspect          :48   http-nio-8080-exec-1 [32m                [0;39m ------------- 开始 -------------
+2024-06-21 11:44:50.383 INFO  com.Lchasi.train.common.aspect.LogAspect          :49   http-nio-8080-exec-1 [32m                [0;39m 请求地址: http://localhost:8080/member/hello GET
+2024-06-21 11:44:50.384 INFO  com.Lchasi.train.common.aspect.LogAspect          :50   http-nio-8080-exec-1 [32m                [0;39m 类名方法: com.Lchasi.train.member.controller.TestController.hello
+2024-06-21 11:44:50.384 INFO  com.Lchasi.train.common.aspect.LogAspect          :51   http-nio-8080-exec-1 [32m                [0;39m 远程地址: 127.0.0.1
+2024-06-21 11:44:50.411 INFO  com.Lchasi.train.common.aspect.LogAspect          :72   http-nio-8080-exec-1 [32m                [0;39m 请求参数: []
+2024-06-21 11:44:50.412 INFO  com.Lchasi.train.common.aspect.LogAspect          :84   http-nio-8080-exec-1 [32m                [0;39m 返回结果: "Hello"
+2024-06-21 11:44:50.412 INFO  com.Lchasi.train.common.aspect.LogAspect          :85   http-nio-8080-exec-1 [32m                [0;39m ------------- 结束 耗时：30 ms -------------
+2024-06-21 11:45:05.528 INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener:211  File Watcher [32m                [0;39m Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2024-06-21 11:45:05.532 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  Thread-6 [32m                [0;39m Stopping ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:45:06.020 INFO  com.Lchasi.train.member.MemberApplication         :50   restartedMain [32m                [0;39m Starting MemberApplication using Java 17.0.10 with PID 5116 (F:\peoject\train\train-member\target\classes started by 15697 in F:\peoject\train)
+2024-06-21 11:45:06.021 INFO  com.Lchasi.train.member.MemberApplication         :654  restartedMain [32m                [0;39m No active profile set, falling back to 1 default profile: "default"
+2024-06-21 11:45:06.143 INFO  o.springframework.cloud.context.scope.GenericScope:282  restartedMain [32m                [0;39m BeanFactory id=c5fa213d-d88a-3a92-b5f6-a43a533ddd64
+2024-06-21 11:45:06.221 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :111  restartedMain [32m                [0;39m Tomcat initialized with port 8080 (http)
+2024-06-21 11:45:06.222 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Initializing ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:45:06.223 INFO  org.apache.catalina.core.StandardService          :173  restartedMain [32m                [0;39m Starting service [Tomcat]
+2024-06-21 11:45:06.223 INFO  org.apache.catalina.core.StandardEngine           :173  restartedMain [32m                [0;39m Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-21 11:45:06.247 INFO  o.a.c.c.C.[Tomcat].[localhost].[/member]          :173  restartedMain [32m                [0;39m Initializing Spring embedded WebApplicationContext
+2024-06-21 11:45:06.248 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext    :296  restartedMain [32m                [0;39m Root WebApplicationContext: initialization completed in 226 ms
+2024-06-21 11:45:06.514 INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer    :59   restartedMain [32m                [0;39m LiveReload server is running on port 35729
+2024-06-21 11:45:06.972 INFO  org.apache.coyote.http11.Http11NioProtocol        :173  restartedMain [32m                [0;39m Starting ProtocolHandler ["http-nio-8080"]
+2024-06-21 11:45:06.976 INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer      :243  restartedMain [32m                [0;39m Tomcat started on port 8080 (http) with context path '/member'
+2024-06-21 11:45:07.405 INFO  com.Lchasi.train.member.MemberApplication         :56   restartedMain [32m                [0;39m Started MemberApplication in 1.822 seconds (process running for 25.937)
+2024-06-21 11:45:07.406 INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener :63   restartedMain [32m                [0;39m Condition evaluation unchanged
+2024-06-21 11:45:07.406 INFO  com.Lchasi.train.member.MemberApplication         :18   restartedMain [32m                [0;39m 启动成功！！
+2024-06-21 11:45:07.407 INFO  com.Lchasi.train.member.MemberApplication         :19   restartedMain [32m                [0;39m 地址：	http://127.0.0.1:8080:/member

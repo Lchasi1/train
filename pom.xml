@@ -23,6 +23,7 @@
     </developers>
     <modules>
         <module>train-member</module>
+        <module>train-common</module>
     </modules>
     <scm>
         <connection/>
@@ -57,6 +58,14 @@
                 <artifactId>hutool-all</artifactId>
                 <version>5.8.10</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.lcr</groupId>
+                <artifactId>train-common</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+
+
         </dependencies>
 
 
