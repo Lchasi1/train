@@ -4,6 +4,7 @@ import com.Lchasi.train.common.resp.CommonResp;
 import com.Lchasi.train.member.req.MemberRegisterReq;
 import com.Lchasi.train.member.service.MemberService;
 import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -23,7 +24,7 @@ public class MemberController {
 
     //注册接口
     @PostMapping("/register")
-    public CommonResp<Long> register( MemberRegisterReq memberRegisterReq) {
+    public CommonResp<Long> register(@Valid MemberRegisterReq memberRegisterReq) {
         long register = memberService.register(memberRegisterReq);
         /*CommonResp<Long> commonResp = new CommonResp<>();
         commonResp.setContent(register);

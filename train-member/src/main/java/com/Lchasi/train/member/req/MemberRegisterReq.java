@@ -1,6 +1,10 @@
 package com.Lchasi.train.member.req;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class MemberRegisterReq {
+
+    @NotBlank(message = "【手机号】不能为空")//校验框架，且需设置开关@Valid
     private String mobile;
 
     public String getMobile() {

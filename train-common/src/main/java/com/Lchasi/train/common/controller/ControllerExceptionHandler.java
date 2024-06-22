@@ -24,7 +24,7 @@ public class ControllerExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(value = Exception.class)
+    @ExceptionHandler(value = Exception.class)//指定拦截的异常
     @ResponseBody
     public CommonResp exceptionHandler(Exception e) throws Exception {
         // LOG.info("seata全局事务ID: {}", RootContext.getXID());
@@ -63,7 +63,7 @@ public class ControllerExceptionHandler {
     @ResponseBody
     public CommonResp exceptionHandler(BindException e) {
         CommonResp commonResp = new CommonResp();
-        LOG.error("校验异常：{}", e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
+        LOG.error("校验异常：{}", e.getBindingResult().getAllErrors().get(0).getDefaultMessage());//获取第三方异常信息中想要的字段
         commonResp.setSuccess(false);
         commonResp.setMessage(e.getBindingResult().getAllErrors().get(0).getDefaultMessage());
         return commonResp;
