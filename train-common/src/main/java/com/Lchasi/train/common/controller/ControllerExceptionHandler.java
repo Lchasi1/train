@@ -1,6 +1,6 @@
 package com.Lchasi.train.common.controller;
 
-//import com.jiawa.train.common.exception.BusinessException;
+import com.Lchasi.train.common.exception.BusinessException;
 import com.Lchasi.train.common.resp.CommonResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
+//为了区分业务异常和系统异常需要增加自定义异常类
 /**
  * 统一异常处理、数据预处理等
  */
@@ -37,20 +39,20 @@ public class ControllerExceptionHandler {
         return commonResp;
     }
 
-/*    *//**
+    /**
      * 业务异常统一处理
      * @param e
      * @return
-     *//*
+     */
     @ExceptionHandler(value = BusinessException.class)
     @ResponseBody
     public CommonResp exceptionHandler(BusinessException e) {
         CommonResp commonResp = new CommonResp();
         LOG.error("业务异常：{}", e.getE().getDesc());
         commonResp.setSuccess(false);
-        commonResp.setMessage(e.getE().getDesc());
+        commonResp.setMessage(e.getE().getDesc());//拿到具体的异常即枚举值，得到枚举值的描述
         return commonResp;
-    }*/
+    }
 
     /**
      * 校验异常统一处理
