@@ -3,6 +3,7 @@ package com.Lchasi.train.member.service;
 import cn.hutool.core.collection.CollUtil;
 import com.Lchasi.train.common.exception.BusinessException;
 import com.Lchasi.train.common.exception.BusinessExceptionEnum;
+import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.member.domain.Member;
 import com.Lchasi.train.member.domain.MemberExample;
 import com.Lchasi.train.member.mapper.MemberMapper;
@@ -38,7 +39,7 @@ public class MemberService {
         }
 
         Member member = new Member();
-        member.setId(System.currentTimeMillis());
+        member.setId(SnowUtil.getSnowflakeNextId());//获得雪花算法的对象，并且指定当前机器，当前位置
         member.setMobile(mobile);
         memberMapper.insert(member);
         return member.getId();
