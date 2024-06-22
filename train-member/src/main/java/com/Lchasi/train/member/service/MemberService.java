@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollUtil;
 import com.Lchasi.train.member.domain.Member;
 import com.Lchasi.train.member.domain.MemberExample;
 import com.Lchasi.train.member.mapper.MemberMapper;
+import com.Lchasi.train.member.req.MemberRegisterReq;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +21,11 @@ public class MemberService {
 
     /**
      * 手机号注册以及登录功能
-     * @param mobile
+     * @param memberRegisterReq
      * @return
      */
-    public long register(String mobile){
+    public long register(MemberRegisterReq memberRegisterReq){
+        String mobile = memberRegisterReq.getMobile();
         MemberExample example = new MemberExample();
         example.createCriteria().andMobileEqualTo(mobile);//创建条件
         List<Member> list = memberMapper.selectByExample(example);
