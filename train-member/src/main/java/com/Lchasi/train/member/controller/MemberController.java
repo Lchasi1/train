@@ -1,12 +1,17 @@
 package com.Lchasi.train.member.controller;
 
 import com.Lchasi.train.common.resp.CommonResp;
+import com.Lchasi.train.member.req.MemberLoginReq;
 import com.Lchasi.train.member.req.MemberRegisterReq;
 import com.Lchasi.train.member.req.MemberSendCodeReq;
+import com.Lchasi.train.member.resp.MemberLoginResp;
 import com.Lchasi.train.member.service.MemberService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/member")
@@ -35,6 +40,7 @@ public class MemberController {
 
     /**
      * 发送短信验证码
+     *
      * @param MemberSendCodeReq
      * @return
      */
@@ -43,4 +49,16 @@ public class MemberController {
         memberService.sendCode(MemberSendCodeReq);
         return new CommonResp<>();
     }
+
+    /**
+     * 登录
+     * @param memberLoginReq
+     * @return
+     */
+    @PostMapping("/login")
+    public CommonResp<MemberLoginResp> login(@Valid MemberLoginReq memberLoginReq) {
+        MemberLoginResp memberLoginResp = memberService.login(memberLoginReq);
+        return new CommonResp<>(memberLoginResp);
+    }
+
 }
