@@ -41,7 +41,7 @@
 <script>
 import { defineComponent, reactive } from 'vue';
 import axios from 'axios';
-import { notification } from 'ant-design-vue';
+import { notification } from 'ant-design-vue';//通知组件
 import { useRouter } from 'vue-router'
 import store from "@/store";
 
@@ -62,7 +62,7 @@ export default defineComponent({
         let data = response.data;
         if (data.success) {
           notification.success({ description: '发送验证码成功！' });
-          loginForm.code = "8888";
+          loginForm.code = "1111";
         } else {
           notification.error({ description: data.message });
         }

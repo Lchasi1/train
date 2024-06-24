@@ -27,7 +27,7 @@ public class MemberController {
 
     //注册接口
     @PostMapping("/register")
-    public CommonResp<Long> register(@Valid MemberRegisterReq memberRegisterReq) {
+    public CommonResp<Long> register(@Valid @RequestBody MemberRegisterReq memberRegisterReq) {
         long register = memberService.register(memberRegisterReq);
         /*CommonResp<Long> commonResp = new CommonResp<>();
         commonResp.setContent(register);
@@ -53,7 +53,7 @@ public class MemberController {
      * @return
      */
     @PostMapping("/login")
-    public CommonResp<MemberLoginResp> login(@Valid MemberLoginReq memberLoginReq) {
+    public CommonResp<MemberLoginResp> login(@Valid @RequestBody MemberLoginReq memberLoginReq) {
         MemberLoginResp memberLoginResp = memberService.login(memberLoginReq);
         return new CommonResp<>(memberLoginResp);
     }
