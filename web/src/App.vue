@@ -1,8 +1,9 @@
 <template>
-  <nav>
+<!--  所有页面都有的东西放在这-->
+<!--  <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </nav>-->
   <router-view/>
 </template>
 

@@ -2,6 +2,7 @@ package com.Lchasi.train.member.controller;
 
 import com.Lchasi.train.common.resp.CommonResp;
 import com.Lchasi.train.member.req.MemberRegisterReq;
+import com.Lchasi.train.member.req.MemberSendCodeReq;
 import com.Lchasi.train.member.service.MemberService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
@@ -32,4 +33,14 @@ public class MemberController {
         return new CommonResp<>(register);
     }
 
+    /**
+     * 发送短信验证码
+     * @param MemberSendCodeReq
+     * @return
+     */
+    @PostMapping("/send-code")
+    public CommonResp<Long> sendCode(@Valid MemberSendCodeReq MemberSendCodeReq) {
+        memberService.sendCode(MemberSendCodeReq);
+        return new CommonResp<>();
+    }
 }
