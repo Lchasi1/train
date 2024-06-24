@@ -14,9 +14,12 @@ Accept: application/json
 
 ###发送短息验证码
 POST http://localhost:8000/member/member/send-code
-Content-Type: application/x-www-form-urlencoded
+Content-Type: application/json
 
-mobile=13000000001
+{
+  "mobile": "13000000001"
+}
+
 ###登录验证
 POST http://localhost:8000/member/member/login
 Content-Type: application/x-www-form-urlencoded
