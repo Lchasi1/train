@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Antd from 'ant-design-vue';
+import Antd, {notification} from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import * as Icons from '@ant-design/icons-vue';
 import axios from 'axios';
@@ -47,3 +47,7 @@ axios.interceptors.response.use(function (response) {
     }
     return Promise.reject(error);
 });
+// axios所有的请求自动带上VUE_APP_SERVER
+axios.defaults.baseURL = process.env.VUE_APP_SERVER;
+console.log('环境：',process.env.NODE_ENV);
+console.log('服务端吗：',process.env.VUE_APP_SERVER);
