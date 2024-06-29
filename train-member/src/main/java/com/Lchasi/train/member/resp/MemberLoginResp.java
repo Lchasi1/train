@@ -16,5 +16,7 @@ public class MemberLoginResp {
 
     private String mobile;
 
+    private String token;
+
 
 }

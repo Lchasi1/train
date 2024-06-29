@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.jwt.JWTUtil;
 import com.Lchasi.train.common.exception.BusinessException;
 import com.Lchasi.train.common.exception.BusinessExceptionEnum;
 import com.Lchasi.train.common.util.SnowUtil;
@@ -18,7 +19,9 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -100,7 +103,13 @@ public class MemberService {
         if(!code.equals("1111")){
             throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_CODE_NOT_ERROR);
         }
-        return BeanUtil.copyProperties(memberDB, MemberLoginResp.class);
+        //设计JWT令牌
+        MemberLoginResp memberLoginResp = BeanUtil.copyProperties(memberDB, MemberLoginResp.class);
+        Map<String, Object> map = BeanUtil.beanToMap(memberLoginResp);
+        String key  = "Lchasi123";
+        String token = JWTUtil.createToken(map, key.getBytes(StandardCharsets.UTF_8));
+        memberLoginResp.setToken(token);
+        return memberLoginResp;
 
     }
 
