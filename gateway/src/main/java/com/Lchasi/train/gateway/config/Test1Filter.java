@@ -1,3 +1,4 @@
+/*
 package com.Lchasi.train.gateway.config;
 
 import lombok.extern.slf4j.Slf4j;
@@ -18,3 +19,4 @@ public class Test1Filter implements GatewayFilter {
 //        return exchange.getResponse().setComplete();//让请求结束
     }
 }
+*/

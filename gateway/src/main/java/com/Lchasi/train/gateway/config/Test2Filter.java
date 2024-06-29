@@ -1,3 +1,4 @@
+/*
 package com.Lchasi.train.gateway.config;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +20,15 @@ public class Test2Filter implements GatewayFilter , Ordered {
 //        return exchange.getResponse().setComplete();//让请求结束
     }
 
-    /**
+    */
+/**
      * 多个过滤器用此来确认顺序，从小到大
      * @return
-     */
+     *//*
+
     @Override
     public int getOrder() {
         return 0;
     }
 }
+*/
