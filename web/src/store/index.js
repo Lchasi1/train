@@ -3,12 +3,17 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
+    member:{}
   },
   getters: {
   },
-  mutations: {
+  mutations: {//set方法
+    setMember(state,member){
+      state.member = member;
+    }
   },
-  actions: {
+  actions: {//异步任务
+
   },
   modules: {
   }
