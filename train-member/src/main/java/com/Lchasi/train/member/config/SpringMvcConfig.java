@@ -1,6 +1,8 @@
 package com.Lchasi.train.member.config;
 
 //import com.Lchasi.train.common.interceptor.LogInterceptor;
+
+import com.Lchasi.train.common.interceptor.LogInterceptor;
 import com.Lchasi.train.common.interceptor.MemberInterceptor;
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +17,12 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 
    @Resource
    MemberInterceptor memberInterceptor;
+   @Resource
+   LogInterceptor logInterceptor;
 
    @Override
    public void addInterceptors(InterceptorRegistry registry) {
-//       registry.addInterceptor(logInterceptor);
+       registry.addInterceptor(logInterceptor);//启用拦截器
 
        // 路径不要包含context-path
        registry.addInterceptor(memberInterceptor)
