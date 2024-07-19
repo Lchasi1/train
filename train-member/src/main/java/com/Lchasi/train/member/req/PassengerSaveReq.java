@@ -1,16 +1,23 @@
 package com.Lchasi.train.member.req;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Date;
 
 public class PassengerSaveReq {//新增和保存使用同一个接口
     private Long id;
 
+    @NotNull(message = "【会员ID】不能为空")//long类型不能用notBlank校验
     private Long memberId;
 
+    @NotBlank(message = "【名字】不能为空")//校验框架，且需设置开关@Valid
     private String name;
 
+    @NotBlank(message = "【身份证号】不能为空")//校验框架，且需设置开关@Valid
     private String idCard;
 
+    @NotBlank(message = "【旅客类型】不能为空")//校验框架，且需设置开关@Valid
     private String type;
 
     private Date createTime;
