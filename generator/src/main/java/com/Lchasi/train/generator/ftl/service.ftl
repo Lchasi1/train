@@ -25,25 +25,25 @@ import java.util.List;
 public class ${Domain}Service {
 
     @Autowired
-    private ${Domain}Mapper${domain}Mapper;
+    private ${Domain}Mapper ${domain}Mapper;
 
     /**
      * 会员端保存信息，以及注册的更改信息
      *
-     * @param${domain}SaveReq
+     * @param ${domain}SaveReq
      */
-    public void save(${Domain}SaveReq${domain}SaveReq) {
+    public void save(${Domain}SaveReq ${domain}SaveReq) {
         DateTime now = DateTime.now();
-        ${Domain}${domain} = BeanUtil.copyProperties(passengerSaveReq, ${Domain}.class);
+        ${Domain} ${domain} = BeanUtil.copyProperties(passengerSaveReq, ${Domain}.class);
         if(ObjectUtil.isNull(passenger.getId())) {//为空则新增
-           ${domain}.setMemberId(LoginMemberContext.getId());
-           ${domain}.setId(SnowUtil.getSnowflakeNextId());
-           ${domain}.setCreateTime(now);
-           ${domain}.setUpdateTime(now);
-           ${domain}Mapper.insert(passenger);
+            ${domain}.setMemberId(LoginMemberContext.getId());
+            ${domain}.setId(SnowUtil.getSnowflakeNextId());
+            ${domain}.setCreateTime(now);
+            ${domain}.setUpdateTime(now);
+            ${domain}Mapper.insert(passenger);
         }else {//修改信息
-           ${domain}.setUpdateTime(now);
-           ${domain}Mapper.updateByPrimaryKey(passenger);
+            ${domain}.setUpdateTime(now);
+            ${domain}Mapper.updateByPrimaryKey(passenger);
         }
 
 
@@ -55,9 +55,9 @@ public class ${Domain}Service {
      * @param req
      */
     public PageResp<${Domain}QueryResp> queryList(${Domain}QueryReq req) {
-        ${Domain}Example${domain}Example = new ${Domain}Example();
-       ${domain}Example.setOrderByClause("id desc");//格局id倒序
-        ${Domain}Example.Criteria criteria =${domain}Example.createCriteria();
+        ${Domain}Example ${domain}Example = new ${Domain}Example();
+        ${domain}Example.setOrderByClause("id desc");//格局id倒序
+        ${Domain}Example.Criteria criteria = ${domain}Example.createCriteria();
         if (ObjectUtil.isNotNull(req.getMemberId())) {
             criteria.andMemberIdEqualTo(req.getMemberId());
         }
@@ -66,7 +66,7 @@ public class ${Domain}Service {
         log.info("每页条数：{}", req.getSize());
 
         PageHelper.startPage(req.getPage(), req.getSize());//分页功能，查询第几页 ，几行数据
-        List<${Domain}> list =${domain}Mapper.selectByExample(passengerExample);
+        List<${Domain}> list = ${domain}Mapper.selectByExample(passengerExample);
         PageInfo<${Domain}> pageInfo = new PageInfo<>(list);
 
         log.info("总行数：{}", pageInfo.getTotal());
@@ -84,6 +84,6 @@ public class ${Domain}Service {
      * @param id
      */
     public void delete(Long id) {
-       ${domain}Mapper.deleteByPrimaryKey(id);
+        ${domain}Mapper.deleteByPrimaryKey(id);
     }
 }
