@@ -1,12 +1,17 @@
 package com.Lchasi.train.member.resp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import java.util.Date;
 
 //增加返回类型，而不直接返回数据库查询的对象，可以根据需求增删属性，保证顾客的私密性
 public class PassengerQueryResp {
+    @JsonSerialize(using = ToStringSerializer.class)//json序列化，解决long类型精度丢死问题，js的long类型精度比java小
     private Long id;
+
+    @JsonSerialize(using = ToStringSerializer.class)
 
     private Long memberId;
 
