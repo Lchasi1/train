@@ -11,6 +11,7 @@ import com.Lchasi.train.member.mapper.PassengerMapper;
 import com.Lchasi.train.member.req.PassengerQueryReq;
 import com.Lchasi.train.member.req.PassengerSaveReq;
 import com.Lchasi.train.member.resp.PassengerQueryResp;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class PassengerService {
 
     /**
      * 会员端保存信息，以及注册的更改信息
+     *
      * @param passengerSaveReq
      */
     public void save(PassengerSaveReq passengerSaveReq) {
@@ -37,16 +39,18 @@ public class PassengerService {
     }
 
     /**
-     * 会员端和控制台端共用同一个接口，控制台端查询所以用户，会员端查看自己
+     * 会员端和控制台端共用同一个接口，控制台端查询所以用户，会员端查看自己，并实现分页功能
+     *
      * @param req
      */
     public List<PassengerQueryResp> queryList(PassengerQueryReq req) {
         PassengerExample passengerExample = new PassengerExample();
         PassengerExample.Criteria criteria = passengerExample.createCriteria();
-        if(ObjectUtil.isNotNull(req.getMemberId())){
+        if (ObjectUtil.isNotNull(req.getMemberId())) {
             criteria.andMemberIdEqualTo(req.getMemberId());
         }
-       List<Passenger> list =  passengerMapper.selectByExample(passengerExample);
+        PageHelper.startPage(1, 1);//分页功能，查询第几页 ，几行数据
+        List<Passenger> list = passengerMapper.selectByExample(passengerExample);
         return BeanUtil.copyToList(list, PassengerQueryResp.class);
     }
 }
