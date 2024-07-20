@@ -14,5 +14,15 @@ GET http://localhost:8000/member/passenger/query-list?page=1&size=3
 Accept: application/json
 token: {{token}}
 
+###根据id修改信息
+POST http://localhost:8000/member/passenger/save
+Content-Type: application/json
+token: {{token}}
 
-###
+{
+  "id": 1814234407800803328,
+  "memberId": 1805049680674033664,
+  "name": "张三",
+  "idCard": "123321",
+  "type": "1"
+}
