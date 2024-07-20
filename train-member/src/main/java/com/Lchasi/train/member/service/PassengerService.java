@@ -49,7 +49,7 @@ public class PassengerService {
         if (ObjectUtil.isNotNull(req.getMemberId())) {
             criteria.andMemberIdEqualTo(req.getMemberId());
         }
-        PageHelper.startPage(1, 1);//分页功能，查询第几页 ，几行数据
+        PageHelper.startPage(req.getPage(), req.getSize());//分页功能，查询第几页 ，几行数据
         List<Passenger> list = passengerMapper.selectByExample(passengerExample);
         return BeanUtil.copyToList(list, PassengerQueryResp.class);
     }

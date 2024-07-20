@@ -1,6 +1,8 @@
 package com.Lchasi.train.member.req;
 
-public class PassengerQueryReq {//新增和保存使用同一个接口
+import com.Lchasi.train.common.req.PageReq;
+
+public class PassengerQueryReq extends PageReq {//新增和保存使用同一个接口
 
 //    @NotNull(message = "【会员ID】不能为空")//long类型不能用notBlank校验
     private Long memberId;
