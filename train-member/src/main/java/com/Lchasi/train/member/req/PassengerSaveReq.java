@@ -1,5 +1,6 @@
 package com.Lchasi.train.member.req;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
@@ -19,8 +20,10 @@ public class PassengerSaveReq {//新增和保存使用同一个接口
     @NotBlank(message = "【旅客类型】不能为空")//校验框架，且需设置开关@Valid
     private String type;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")//后端必须按这个格式转化回日期
     private Date updateTime;
 
     public Long getId() {
