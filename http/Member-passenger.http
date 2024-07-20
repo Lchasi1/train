@@ -9,4 +9,10 @@ token: {{token}}
   "idCard": "123321",
   "type": "1"
 }
+###会员端查询个人信息
+GET http://localhost:8000/member/passenger/query-list
+Accept: application/json
+token: {{token}}
+
+
 ###
