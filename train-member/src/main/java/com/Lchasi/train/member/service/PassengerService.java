@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
 import com.Lchasi.train.common.context.LoginMemberContext;
+import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.member.domain.Passenger;
 import com.Lchasi.train.member.domain.PassengerExample;
@@ -12,12 +13,15 @@ import com.Lchasi.train.member.req.PassengerQueryReq;
 import com.Lchasi.train.member.req.PassengerSaveReq;
 import com.Lchasi.train.member.resp.PassengerQueryResp;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Slf4j
 public class PassengerService {
 
     @Autowired
@@ -43,14 +47,27 @@ public class PassengerService {
      *
      * @param req
      */
-    public List<PassengerQueryResp> queryList(PassengerQueryReq req) {
+    public PageResp<PassengerQueryResp> queryList(PassengerQueryReq req) {
         PassengerExample passengerExample = new PassengerExample();
         PassengerExample.Criteria criteria = passengerExample.createCriteria();
         if (ObjectUtil.isNotNull(req.getMemberId())) {
             criteria.andMemberIdEqualTo(req.getMemberId());
         }
+
+        log.info("查询页码：{}", req.getPage());
+        log.info("每页条数：{}", req.getSize());
+
         PageHelper.startPage(req.getPage(), req.getSize());//分页功能，查询第几页 ，几行数据
         List<Passenger> list = passengerMapper.selectByExample(passengerExample);
-        return BeanUtil.copyToList(list, PassengerQueryResp.class);
+        PageInfo<Passenger> pageInfo = new PageInfo<>(list);
+
+        log.info("总行数：{}", pageInfo.getTotal());
+        log.info("总页数：{}", pageInfo.getPages());
+
+        List<PassengerQueryResp> list1 = BeanUtil.copyToList(list, PassengerQueryResp.class);
+        PageResp<PassengerQueryResp> pageResp = new PageResp<>();
+        pageResp.setTotal(pageInfo.getTotal());
+        pageResp.setList(list1);
+        return pageResp;
     }
 }

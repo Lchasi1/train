@@ -2,6 +2,7 @@ package com.Lchasi.train.member.controller;
 
 import com.Lchasi.train.common.context.LoginMemberContext;
 import com.Lchasi.train.common.resp.CommonResp;
+import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.member.req.PassengerQueryReq;
 import com.Lchasi.train.member.req.PassengerSaveReq;
 import com.Lchasi.train.member.resp.PassengerQueryResp;
@@ -28,9 +29,9 @@ public class PassengerController {
 
     //url风格多个单词用横线连接并且小写
     @GetMapping("/query-list")
-    public CommonResp<List<PassengerQueryResp>> passengerQueryList(@Valid PassengerQueryReq req) {
+    public CommonResp<PageResp<PassengerQueryResp>> passengerQueryList(@Valid PassengerQueryReq req) {
         req.setMemberId(LoginMemberContext.getId());//从token中获取
-        List<PassengerQueryResp> list = passengerService.queryList(req);
+        PageResp<PassengerQueryResp> list = passengerService.queryList(req);
         return new CommonResp<>(list);
     }
 }
