@@ -1,5 +1,7 @@
 package com.Lchasi.train.member.resp;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 //增加返回类型，而不直接返回数据库查询的对象，可以根据需求增删属性，保证顾客的私密性
@@ -14,7 +16,10 @@ public class PassengerQueryResp {
 
     private String type;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")//改变输出给前端的格式
     private Date createTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")//改变输出给前端的格式
 
     private Date updateTime;
 
