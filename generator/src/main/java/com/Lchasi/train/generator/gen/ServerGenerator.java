@@ -14,10 +14,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class ServerGenerator {
-    static boolean readOnly = false;
+    static boolean readOnly = false;//是否生产增删改查，查
     static String vuePath = "admin/src/views/main/";
     static String serverPath = "train-[module]/src/main/java/com/Lchasi/train/[module]/";
-//    static String serverPath = "train-[module]/src/main/java/com/Lchasi/train/member/[module]service/";
     static String pomPath = "generator/pom.xml";
     static String module = "";
     // static {
