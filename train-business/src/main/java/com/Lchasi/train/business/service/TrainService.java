@@ -9,6 +9,8 @@ import com.Lchasi.train.business.mapper.TrainMapper;
 import com.Lchasi.train.business.req.TrainQueryReq;
 import com.Lchasi.train.business.req.TrainSaveReq;
 import com.Lchasi.train.business.resp.TrainQueryResp;
+import com.Lchasi.train.common.exception.BusinessException;
+import com.Lchasi.train.common.exception.BusinessExceptionEnum;
 import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
@@ -35,6 +37,12 @@ public class TrainService {
         DateTime now = DateTime.now();
         Train train = BeanUtil.copyProperties(trainSaveReq, Train.class);
         if(ObjectUtil.isNull(train.getId())) {//为空则新增
+            //保存之前，先效验唯一键是否存在
+            Train train1 = selectByUnique(trainSaveReq.getCode());
+            if(ObjectUtil.isNotEmpty(train1)) {
+                throw new BusinessException(BusinessExceptionEnum.BUSINESS_TRAIN_CODE_UNIQUE_ERROR);
+            }
+
             train.setId(SnowUtil.getSnowflakeNextId());
             train.setCreateTime(now);
             train.setUpdateTime(now);
@@ -45,6 +53,17 @@ public class TrainService {
         }
 
 
+    }
+    private Train selectByUnique(String code) {
+        TrainExample trainExample = new TrainExample();
+        trainExample.createCriteria()
+                .andCodeEqualTo(code);
+        List<Train> list = trainMapper.selectByExample(trainExample);
+        if (ObjectUtil.isNotEmpty(list)) {
+            return list.get(0);
+        } else {
+            return null;
+        }
     }
 
     /**

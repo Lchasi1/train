@@ -39,10 +39,8 @@ public class StationService {
         if(ObjectUtil.isNull(station.getId())) {//为空则新增
 
             //保存之前，先效验唯一键是否存在
-            StationExample stationExample = new StationExample();
-            stationExample.createCriteria().andNameEqualTo(station.getName());
-            List<Station> list = stationMapper.selectByExample(stationExample);
-            if(ObjectUtil.isNotEmpty(list)) {
+            Station stationDB = selectByUnique(station.getName());
+            if(ObjectUtil.isNotEmpty(stationDB)) {
                 throw new BusinessException(BusinessExceptionEnum.BUSINESS_STATION_NAME_UNIQUE_ERROR);
             }
 
@@ -56,6 +54,22 @@ public class StationService {
         }
 
 
+    }
+
+    /**
+     * 按唯一键来查询
+     * @param name
+     * @return
+     */
+    private Station selectByUnique(String name) {
+        StationExample stationExample = new StationExample();
+        stationExample.createCriteria().andNameEqualTo(name);
+        List<Station> list = stationMapper.selectByExample(stationExample);
+        if(ObjectUtil.isNotEmpty(list)) {
+            return list.get(0);
+        }else {
+            return null;
+        }
     }
 
     /**

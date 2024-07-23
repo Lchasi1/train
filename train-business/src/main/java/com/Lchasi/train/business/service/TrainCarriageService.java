@@ -10,6 +10,8 @@ import com.Lchasi.train.business.mapper.TrainCarriageMapper;
 import com.Lchasi.train.business.req.TrainCarriageQueryReq;
 import com.Lchasi.train.business.req.TrainCarriageSaveReq;
 import com.Lchasi.train.business.resp.TrainCarriageQueryResp;
+import com.Lchasi.train.common.exception.BusinessException;
+import com.Lchasi.train.common.exception.BusinessExceptionEnum;
 import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
@@ -39,20 +41,40 @@ public class TrainCarriageService {
         //自动计算出列数和总座位数
         List<SeatColEnum> seatColEnums = SeatColEnum.getColsByType(req.getSeatType());
         req.setColCount(seatColEnums.size());
-        req.setSeatCount(req.getColCount()*req.getRowCount());
+        req.setSeatCount(req.getColCount() * req.getRowCount());
 
         TrainCarriage trainCarriage = BeanUtil.copyProperties(req, TrainCarriage.class);
-        if(ObjectUtil.isNull(trainCarriage.getId())) {//为空则新增
+        if (ObjectUtil.isNull(trainCarriage.getId())) {//为空则新增
+
+            //保存之前，先效验唯一键是否存在
+            TrainCarriage trainCarriage1 = selectByUnique(req.getTrainCode(), req.getIndex());
+            if(ObjectUtil.isNotEmpty(trainCarriage1)) {
+                throw new BusinessException(BusinessExceptionEnum.BUSINESS_TRAIN_CARRIAGE_INDEX_UNIQUE_ERROR);
+            }
+
             trainCarriage.setId(SnowUtil.getSnowflakeNextId());
             trainCarriage.setCreateTime(now);
             trainCarriage.setUpdateTime(now);
             trainCarriageMapper.insert(trainCarriage);
-        }else {//修改信息
+        } else {//修改信息
             trainCarriage.setUpdateTime(now);
             trainCarriageMapper.updateByPrimaryKey(trainCarriage);
         }
 
 
+    }
+
+    private TrainCarriage selectByUnique(String trainCode, Integer index) {
+        TrainCarriageExample trainCarriageExample = new TrainCarriageExample();
+        trainCarriageExample.createCriteria()
+                .andTrainCodeEqualTo(trainCode)
+                .andIndexEqualTo(index);
+        List<TrainCarriage> list = trainCarriageMapper.selectByExample(trainCarriageExample);
+        if (ObjectUtil.isNotEmpty(list)) {
+            return list.get(0);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -84,6 +106,7 @@ public class TrainCarriageService {
 
     /**
      * 根据主键id删除
+     *
      * @param id
      */
     public void delete(Long id) {
@@ -92,12 +115,15 @@ public class TrainCarriageService {
 
     /**
      * 根据车次查询车厢
+     *
      * @param trainCode
      */
-    public List<TrainCarriage> selectByTrainCode(String trainCode){
+    public List<TrainCarriage> selectByTrainCode(String trainCode) {
         TrainCarriageExample trainCarriageExample = new TrainCarriageExample();
         trainCarriageExample.createCriteria().andTrainCodeEqualTo(trainCode);
         List<TrainCarriage> trainCarriages = trainCarriageMapper.selectByExample(trainCarriageExample);
         return trainCarriages;
     }
+
+
 }
