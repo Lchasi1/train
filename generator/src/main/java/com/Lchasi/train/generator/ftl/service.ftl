@@ -34,16 +34,15 @@ public class ${Domain}Service {
      */
     public void save(${Domain}SaveReq ${domain}SaveReq) {
         DateTime now = DateTime.now();
-        ${Domain} ${domain} = BeanUtil.copyProperties(passengerSaveReq, ${Domain}.class);
-        if(ObjectUtil.isNull(passenger.getId())) {//为空则新增
-            ${domain}.setMemberId(LoginMemberContext.getId());
+        ${Domain} ${domain} = BeanUtil.copyProperties(${domain}SaveReq, ${Domain}.class);
+        if(ObjectUtil.isNull(${domain}.getId())) {//为空则新增
             ${domain}.setId(SnowUtil.getSnowflakeNextId());
             ${domain}.setCreateTime(now);
             ${domain}.setUpdateTime(now);
-            ${domain}Mapper.insert(passenger);
+            ${domain}Mapper.insert(${domain});
         }else {//修改信息
             ${domain}.setUpdateTime(now);
-            ${domain}Mapper.updateByPrimaryKey(passenger);
+            ${domain}Mapper.updateByPrimaryKey(${domain});
         }
 
 
@@ -63,7 +62,7 @@ public class ${Domain}Service {
         log.info("每页条数：{}", req.getSize());
 
         PageHelper.startPage(req.getPage(), req.getSize());//分页功能，查询第几页 ，几行数据
-        List<${Domain}> list = ${domain}Mapper.selectByExample(passengerExample);
+        List<${Domain}> list = ${domain}Mapper.selectByExample(${domain}Example);
         PageInfo<${Domain}> pageInfo = new PageInfo<>(list);
 
         log.info("总行数：{}", pageInfo.getTotal());

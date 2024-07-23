@@ -1,4 +1,4 @@
-package com.Lchasi.train.${module}.controller;
+package com.Lchasi.train.${module}.controller.admin;
 
 import com.Lchasi.train.common.context.LoginMemberContext;
 import com.Lchasi.train.common.resp.CommonResp;
@@ -12,8 +12,8 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/${domain}")
-public class ${Domain}Controller {
+@RequestMapping("/admin/${domain}")
+public class ${Domain}AdminController {
 
     @Resource
     private ${Domain}Service ${domain}Service;
@@ -28,7 +28,6 @@ public class ${Domain}Controller {
     //url风格多个单词用横线连接并且小写
     @GetMapping("/query-list")
     public CommonResp<PageResp<${Domain}QueryResp>> ${domain}QueryList(@Valid ${Domain}QueryReq req) {
-        req.setMemberId(LoginMemberContext.getId());//从token中获取
         PageResp<${Domain}QueryResp> list = ${domain}Service.queryList(req);
         return new CommonResp<>(list);
     }

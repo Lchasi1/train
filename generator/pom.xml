@@ -65,6 +65,13 @@
         </dependency>
         <dependency>
             <groupId>com.lcr</groupId>
+            <artifactId>train-business</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lcr</groupId>
             <artifactId>train-member</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>

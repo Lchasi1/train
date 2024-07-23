@@ -77,12 +77,14 @@ public class ServerGenerator {
         System.out.println("组装参数：" + param);
 
         gen(Domain, param, "service", "service");
-//        gen(Domain, param, "controller/admin", "adminController");
-        gen(Domain, param, "req", "saveReq");
-//        gen(Domain, param, "req", "queryReq");
-//        gen(Domain, param, "resp", "queryResp");
+        gen(Domain, param, "controller/admin", "adminController");
+//        gen(Domain, param, "controller", "controller");
 
-//        genVue(do_main, param);
+        gen(Domain, param, "req", "saveReq");
+        gen(Domain, param, "req", "queryReq");
+        gen(Domain, param, "resp", "queryResp");
+
+        genVue(do_main, param);
     }
 
     private static void gen(String Domain, Map<String, Object> param, String packageName, String target) throws IOException, TemplateException {
