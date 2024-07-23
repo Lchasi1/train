@@ -3,15 +3,15 @@ package com.Lchasi.train.business.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
-import com.Lchasi.train.common.context.LoginMemberContext;
-import com.Lchasi.train.common.resp.PageResp;
-import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.business.domain.TrainCarriage;
 import com.Lchasi.train.business.domain.TrainCarriageExample;
+import com.Lchasi.train.business.enums.SeatColEnum;
 import com.Lchasi.train.business.mapper.TrainCarriageMapper;
 import com.Lchasi.train.business.req.TrainCarriageQueryReq;
 import com.Lchasi.train.business.req.TrainCarriageSaveReq;
 import com.Lchasi.train.business.resp.TrainCarriageQueryResp;
+import com.Lchasi.train.common.resp.PageResp;
+import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +30,18 @@ public class TrainCarriageService {
     /**
      * 会员端保存信息，以及注册的更改信息
      *
-     * @param trainCarriageSaveReq
+     * @param req
      */
-    public void save(TrainCarriageSaveReq trainCarriageSaveReq) {
+    public void save(TrainCarriageSaveReq req) {
         DateTime now = DateTime.now();
-        TrainCarriage trainCarriage = BeanUtil.copyProperties(trainCarriageSaveReq, TrainCarriage.class);
+
+        //自动计算出列数和总座位数
+        //自动计算出列数和总座位数
+        List<SeatColEnum> seatColEnums = SeatColEnum.getColsByType(req.getSeatType());
+        req.setColCount(seatColEnums.size());
+        req.setSeatCount(req.getColCount()*req.getRowCount());
+
+        TrainCarriage trainCarriage = BeanUtil.copyProperties(req, TrainCarriage.class);
         if(ObjectUtil.isNull(trainCarriage.getId())) {//为空则新增
             trainCarriage.setId(SnowUtil.getSnowflakeNextId());
             trainCarriage.setCreateTime(now);
@@ -81,5 +88,16 @@ public class TrainCarriageService {
      */
     public void delete(Long id) {
         trainCarriageMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 根据车次查询车厢
+     * @param trainCode
+     */
+    public List<TrainCarriage> selectByTrainCode(String trainCode){
+        TrainCarriageExample trainCarriageExample = new TrainCarriageExample();
+        trainCarriageExample.createCriteria().andTrainCodeEqualTo(trainCode);
+        List<TrainCarriage> trainCarriages = trainCarriageMapper.selectByExample(trainCarriageExample);
+        return trainCarriages;
     }
 }

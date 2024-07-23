@@ -9,6 +9,8 @@ import com.Lchasi.train.business.mapper.StationMapper;
 import com.Lchasi.train.business.req.StationQueryReq;
 import com.Lchasi.train.business.req.StationSaveReq;
 import com.Lchasi.train.business.resp.StationQueryResp;
+import com.Lchasi.train.common.exception.BusinessException;
+import com.Lchasi.train.common.exception.BusinessExceptionEnum;
 import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
@@ -35,6 +37,15 @@ public class StationService {
         DateTime now = DateTime.now();
         Station station = BeanUtil.copyProperties(stationSaveReq, Station.class);
         if(ObjectUtil.isNull(station.getId())) {//为空则新增
+
+            //保存之前，先效验唯一键是否存在
+            StationExample stationExample = new StationExample();
+            stationExample.createCriteria().andNameEqualTo(station.getName());
+            List<Station> list = stationMapper.selectByExample(stationExample);
+            if(ObjectUtil.isNotEmpty(list)) {
+                throw new BusinessException(BusinessExceptionEnum.BUSINESS_STATION_NAME_UNIQUE_ERROR);
+            }
+
             station.setId(SnowUtil.getSnowflakeNextId());
             station.setCreateTime(now);
             station.setUpdateTime(now);
