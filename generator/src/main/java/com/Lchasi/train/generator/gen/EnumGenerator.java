@@ -2,6 +2,7 @@ package com.Lchasi.train.generator.gen;
 
 
 import cn.hutool.core.util.StrUtil;
+import com.Lchasi.train.business.enums.SeatTypeEnum;
 import com.Lchasi.train.business.enums.TrainTypeEnum;
 import com.Lchasi.train.member.enums.PassengerTypeEnum;
 
@@ -25,7 +26,7 @@ public class EnumGenerator {
         try {
             toJson(PassengerTypeEnum.class, bufferObject, bufferArray);
             toJson(TrainTypeEnum.class, bufferObject, bufferArray);
-//            toJson(SeatTypeEnum.class, bufferObject, bufferArray);
+            toJson(SeatTypeEnum.class, bufferObject, bufferArray);
 //            toJson(SeatColEnum.class, bufferObject, bufferArray);
 //            toJson(ConfirmOrderStatusEnum.class, bufferObject, bufferArray);
 
