@@ -3,15 +3,14 @@ package com.Lchasi.train.business.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
-import com.Lchasi.train.common.context.LoginMemberContext;
-import com.Lchasi.train.common.resp.PageResp;
-import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.business.domain.Train;
 import com.Lchasi.train.business.domain.TrainExample;
 import com.Lchasi.train.business.mapper.TrainMapper;
 import com.Lchasi.train.business.req.TrainQueryReq;
 import com.Lchasi.train.business.req.TrainSaveReq;
 import com.Lchasi.train.business.resp.TrainQueryResp;
+import com.Lchasi.train.common.resp.PageResp;
+import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -81,5 +80,12 @@ public class TrainService {
      */
     public void delete(Long id) {
         trainMapper.deleteByPrimaryKey(id);
+    }
+
+    public List<TrainQueryResp> queryAll() {
+        TrainExample trainExample = new TrainExample();
+        trainExample.setOrderByClause("code desc");//格局id倒序
+        List<Train> list = trainMapper.selectByExample(trainExample);
+        return BeanUtil.copyToList(list, TrainQueryResp.class);
     }
 }
