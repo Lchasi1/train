@@ -1,12 +1,15 @@
+/*
 package com.Lchasi.train.batch.job;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  * 适合单体应用，不适合集群。 同一个任务已经有节点在跑，其他的就不需要跑，因此不选用springboot自带的定时调度
- */
+ *//*
+
 @Component
 @EnableScheduling//开启定时任务
 public class SpringBootTestJob {
@@ -17,3 +20,4 @@ public class SpringBootTestJob {
         System.out.println("SpringBootTestJob");
     }
 }
+*/
