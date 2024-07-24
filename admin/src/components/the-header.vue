@@ -2,7 +2,7 @@
   <a-layout-header class="header">
     <div class="logo">
       <router-link to="/welcome" style="color: white; font-size: 18px">
-        Lchasi控制器
+        Lchasi控制后台
       </router-link>
     </div>
     <div style="float: right; color: white;">

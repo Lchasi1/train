@@ -1,18 +1,17 @@
 package com.Lchasi.train.business.controller.admin;
 
-import com.Lchasi.train.common.context.LoginMemberContext;
-import com.Lchasi.train.common.resp.CommonResp;
-import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.business.req.TrainStationQueryReq;
 import com.Lchasi.train.business.req.TrainStationSaveReq;
 import com.Lchasi.train.business.resp.TrainStationQueryResp;
 import com.Lchasi.train.business.service.TrainStationService;
+import com.Lchasi.train.common.resp.CommonResp;
+import com.Lchasi.train.common.resp.PageResp;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin/trainStation")
+@RequestMapping("/admin/train-station")
 public class TrainStationAdminController {
 
     @Resource

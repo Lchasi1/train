@@ -11,7 +11,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/admin/trainCarriage")
+@RequestMapping("/admin/train-carriage")
 public class TrainCarriageAdminController {
 
     @Resource
