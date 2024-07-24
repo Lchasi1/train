@@ -3,15 +3,14 @@ package com.Lchasi.train.business.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
-import com.Lchasi.train.common.context.LoginMemberContext;
-import com.Lchasi.train.common.resp.PageResp;
-import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.business.domain.DailyTrain;
 import com.Lchasi.train.business.domain.DailyTrainExample;
 import com.Lchasi.train.business.mapper.DailyTrainMapper;
 import com.Lchasi.train.business.req.DailyTrainQueryReq;
 import com.Lchasi.train.business.req.DailyTrainSaveReq;
 import com.Lchasi.train.business.resp.DailyTrainQueryResp;
+import com.Lchasi.train.common.resp.PageResp;
+import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -35,12 +34,12 @@ public class DailyTrainService {
     public void save(DailyTrainSaveReq dailyTrainSaveReq) {
         DateTime now = DateTime.now();
         DailyTrain dailyTrain = BeanUtil.copyProperties(dailyTrainSaveReq, DailyTrain.class);
-        if(ObjectUtil.isNull(dailyTrain.getId())) {//为空则新增
+        if (ObjectUtil.isNull(dailyTrain.getId())) {//为空则新增
             dailyTrain.setId(SnowUtil.getSnowflakeNextId());
             dailyTrain.setCreateTime(now);
             dailyTrain.setUpdateTime(now);
             dailyTrainMapper.insert(dailyTrain);
-        }else {//修改信息
+        } else {//修改信息
             dailyTrain.setUpdateTime(now);
             dailyTrainMapper.updateByPrimaryKey(dailyTrain);
         }
@@ -55,9 +54,14 @@ public class DailyTrainService {
      */
     public PageResp<DailyTrainQueryResp> queryList(DailyTrainQueryReq req) {
         DailyTrainExample dailyTrainExample = new DailyTrainExample();
-        dailyTrainExample.setOrderByClause("id desc");//格局id倒序
+        dailyTrainExample.setOrderByClause("date desc, code asc");//日期最新的前面，code顺序
         DailyTrainExample.Criteria criteria = dailyTrainExample.createCriteria();
-
+        if (ObjectUtil.isNotNull(req.getDate())) {
+            criteria.andDateEqualTo(req.getDate());
+        }
+        if (ObjectUtil.isNotEmpty(req.getCode())) {
+            criteria.andCodeEqualTo(req.getCode());
+        }
         log.info("查询页码：{}", req.getPage());
         log.info("每页条数：{}", req.getSize());
 
@@ -77,6 +81,7 @@ public class DailyTrainService {
 
     /**
      * 根据主键id删除
+     *
      * @param id
      */
     public void delete(Long id) {

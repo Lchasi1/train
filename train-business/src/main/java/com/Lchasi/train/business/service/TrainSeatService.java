@@ -63,7 +63,9 @@ public class TrainSeatService {
         TrainSeatExample trainSeatExample = new TrainSeatExample();
         trainSeatExample.setOrderByClause("id desc");//格局id倒序
         TrainSeatExample.Criteria criteria = trainSeatExample.createCriteria();
-
+        if (ObjectUtil.isNotEmpty(req.getTrainCode())) {
+            criteria.andTrainCodeEqualTo(req.getTrainCode());
+        }
         log.info("查询页码：{}", req.getPage());
         log.info("每页条数：{}", req.getSize());
 

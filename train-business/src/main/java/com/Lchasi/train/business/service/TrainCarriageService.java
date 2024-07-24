@@ -86,7 +86,9 @@ public class TrainCarriageService {
         TrainCarriageExample trainCarriageExample = new TrainCarriageExample();
         trainCarriageExample.setOrderByClause("id desc");//格局id倒序
         TrainCarriageExample.Criteria criteria = trainCarriageExample.createCriteria();
-
+        if (ObjectUtil.isNotEmpty(req.getTrainCode())) {
+            criteria.andTrainCodeEqualTo(req.getTrainCode());
+        }
         log.info("查询页码：{}", req.getPage());
         log.info("每页条数：{}", req.getSize());
 

@@ -73,7 +73,7 @@ public class TrainService {
      */
     public PageResp<TrainQueryResp> queryList(TrainQueryReq req) {
         TrainExample trainExample = new TrainExample();
-        trainExample.setOrderByClause("id desc");//格局id倒序
+        trainExample.setOrderByClause("code asc");//格局id倒序
         TrainExample.Criteria criteria = trainExample.createCriteria();
 
         log.info("查询页码：{}", req.getPage());

@@ -94,6 +94,9 @@ public class TrainStationService {
         TrainStationExample trainStationExample = new TrainStationExample();
         trainStationExample.setOrderByClause("id desc");//格局id倒序
         TrainStationExample.Criteria criteria = trainStationExample.createCriteria();
+        if(ObjectUtil.isNotNull(req.getTrainCode())) {
+            criteria.andTrainCodeEqualTo(req.getTrainCode());
+        }
 
         log.info("查询页码：{}", req.getPage());
         log.info("每页条数：{}", req.getSize());
