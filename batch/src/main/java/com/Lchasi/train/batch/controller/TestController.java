@@ -1,4 +1,4 @@
-package com.Lchasi.train.business.controller;
+package com.Lchasi.train.batch.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

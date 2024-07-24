@@ -1,4 +1,4 @@
-package com.Lchasi.train.business.config;
+package com.Lchasi.train.batch.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
