@@ -3,6 +3,7 @@ package com.Lchasi.train.business.service;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.Lchasi.train.business.domain.DailyTrain;
 import com.Lchasi.train.business.domain.DailyTrainExample;
@@ -34,6 +35,9 @@ public class DailyTrainService {
     private TrainService trainService;
     @Autowired
     private TrainMapper trainMapper;
+
+    @Resource
+    private DailyTrainStationService dailyTrainStationService;
 
     /**
      * 会员端保存信息，以及注册的更改信息
@@ -114,6 +118,7 @@ public class DailyTrainService {
     }
 
     private void genDailyTrain(Date date, Train train) {
+        log.info("生成日期【{}】车次【{}】的车站信息开始", DateUtil.formatDate(date), train.getCode());
         //删除该车次已有数据
         DailyTrainExample dailyTrainExample = new DailyTrainExample();
         dailyTrainExample.createCriteria()
@@ -128,5 +133,9 @@ public class DailyTrainService {
         dailyTrain.setUpdateTime(now);
         dailyTrain.setDate(date);
         dailyTrainMapper.insert(dailyTrain);
+
+        //生成该车次的车站数据
+        dailyTrainStationService.genDaily(date,train.getCode());
+        log.info("生成日期【{}】车次【{}】的车站信息结束", DateUtil.formatDate(date), train.getCode());
     }
 }

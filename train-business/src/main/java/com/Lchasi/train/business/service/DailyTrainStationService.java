@@ -17,6 +17,7 @@ import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class DailyTrainStationService {
     @Autowired
     private DailyTrainStationMapper dailyTrainStationMapper;
 
+    @Resource
     private TrainStationService trainStationService;
 
     /**
