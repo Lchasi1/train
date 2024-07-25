@@ -2,16 +2,17 @@ package com.Lchasi.train.business.service;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.ObjectUtil;
-import com.Lchasi.train.common.context.LoginMemberContext;
-import com.Lchasi.train.common.resp.PageResp;
-import com.Lchasi.train.common.util.SnowUtil;
 import com.Lchasi.train.business.domain.DailyTrainCarriage;
 import com.Lchasi.train.business.domain.DailyTrainCarriageExample;
+import com.Lchasi.train.business.enums.SeatColEnum;
 import com.Lchasi.train.business.mapper.DailyTrainCarriageMapper;
 import com.Lchasi.train.business.req.DailyTrainCarriageQueryReq;
 import com.Lchasi.train.business.req.DailyTrainCarriageSaveReq;
 import com.Lchasi.train.business.resp.DailyTrainCarriageQueryResp;
+import com.Lchasi.train.common.resp.PageResp;
+import com.Lchasi.train.common.util.SnowUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +31,17 @@ public class DailyTrainCarriageService {
     /**
      * 会员端保存信息，以及注册的更改信息
      *
-     * @param dailyTrainCarriageSaveReq
+     * @param req
      */
-    public void save(DailyTrainCarriageSaveReq dailyTrainCarriageSaveReq) {
+    public void save(DailyTrainCarriageSaveReq req) {
         DateTime now = DateTime.now();
-        DailyTrainCarriage dailyTrainCarriage = BeanUtil.copyProperties(dailyTrainCarriageSaveReq, DailyTrainCarriage.class);
+        //自动计算出列数和总座位数
+        //自动计算出列数和总座位数
+        List<SeatColEnum> seatColEnums = SeatColEnum.getColsByType(req.getSeatType());
+        req.setColCount(seatColEnums.size());
+        req.setSeatCount(req.getColCount() * req.getRowCount());
+
+        DailyTrainCarriage dailyTrainCarriage = BeanUtil.copyProperties(req, DailyTrainCarriage.class);
         if(ObjectUtil.isNull(dailyTrainCarriage.getId())) {//为空则新增
             dailyTrainCarriage.setId(SnowUtil.getSnowflakeNextId());
             dailyTrainCarriage.setCreateTime(now);
@@ -55,9 +62,14 @@ public class DailyTrainCarriageService {
      */
     public PageResp<DailyTrainCarriageQueryResp> queryList(DailyTrainCarriageQueryReq req) {
         DailyTrainCarriageExample dailyTrainCarriageExample = new DailyTrainCarriageExample();
-        dailyTrainCarriageExample.setOrderByClause("id desc");//格局id倒序
+        dailyTrainCarriageExample.setOrderByClause("date desc, train_code asc, `index` asc");//格局id倒序
         DailyTrainCarriageExample.Criteria criteria = dailyTrainCarriageExample.createCriteria();
-
+        if (ObjUtil.isNotNull(req.getDate())) {
+            criteria.andDateEqualTo(req.getDate());
+        }
+        if (ObjUtil.isNotEmpty(req.getTrainCode())) {
+            criteria.andTrainCodeEqualTo(req.getTrainCode());
+        }
         log.info("查询页码：{}", req.getPage());
         log.info("每页条数：{}", req.getSize());
 
