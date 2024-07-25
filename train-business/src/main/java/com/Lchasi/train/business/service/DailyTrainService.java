@@ -38,8 +38,12 @@ public class DailyTrainService {
 
     @Resource
     private DailyTrainStationService dailyTrainStationService;
+
     @Resource
     private DailyTrainCarriageService dailyTrainCarriageService;
+
+    @Resource
+    private DailyTrainSeatService dailyTrainSeatService;
 
     /**
      * 会员端保存信息，以及注册的更改信息
@@ -140,6 +144,8 @@ public class DailyTrainService {
         dailyTrainStationService.genDaily(date,train.getCode());
         //生产该车次的车厢数据
         dailyTrainCarriageService.genDaily(date,train.getCode());
+        //生产该车次的座位数据
+        dailyTrainSeatService.genDaily(date,train.getCode());
 
         log.info("生成日期【{}】车次【{}】的车站信息结束", DateUtil.formatDate(date), train.getCode());
     }
