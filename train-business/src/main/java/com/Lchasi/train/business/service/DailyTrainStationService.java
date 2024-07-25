@@ -99,6 +99,11 @@ public class DailyTrainStationService {
         dailyTrainStationMapper.deleteByPrimaryKey(id);
     }
 
+    /**
+     * 生成日常车次的车站信息
+     * @param date
+     * @param trainCode
+     */
     @Transactional
     public void genDaily(Date date, String trainCode) {
         log.info("生成日期【{}】车次【{}】的车站信息开始", DateUtil.formatDate(date), trainCode);
