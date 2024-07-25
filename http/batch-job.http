@@ -55,7 +55,7 @@ Content-Type: application/json
 "jobGroupName": "default"
 }
 
-###
+###生成15天后的日常车次数据
 
 POST http://localhost:8000/batch/admin/job/run
 Content-Type: application/json
@@ -64,3 +64,6 @@ Content-Type: application/json
 "name": "com.Lchasi.train.batch.job.DailyTrainJob",
 "jobGroupName": "default"
 }
+
+###
+
