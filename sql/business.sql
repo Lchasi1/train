@@ -148,6 +148,7 @@ create table `daily_train_carriage`
 ) engine = innodb
   default charset = utf8mb4 comment ='每日车厢';
 
+# 用sell字段表示是否售卖
 drop table if exists `daily_train_seat`;
 create table `daily_train_seat`
 (
