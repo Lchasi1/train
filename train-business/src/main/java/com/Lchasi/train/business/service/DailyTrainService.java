@@ -21,6 +21,7 @@ import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -44,6 +45,9 @@ public class DailyTrainService {
 
     @Resource
     private DailyTrainSeatService dailyTrainSeatService;
+
+    @Resource
+    private DailyTrainTicketService dailyTrainTicketService;
 
     /**
      * 会员端保存信息，以及注册的更改信息
@@ -112,6 +116,7 @@ public class DailyTrainService {
      *
      * @param date
      */
+    @Transactional
     public void genDaily(Date date) {
         List<Train> trainList = trainService.selectAll();
         if (CollUtil.isEmpty(trainList)) {
@@ -147,6 +152,8 @@ public class DailyTrainService {
         //生产该车次的座位数据
         dailyTrainSeatService.genDaily(date,train.getCode());
 
+        //生产该车次的余票数据
+        dailyTrainTicketService.genDaily(date,train.getCode());
         log.info("生成日期【{}】车次【{}】的车站信息结束", DateUtil.formatDate(date), train.getCode());
     }
 }
