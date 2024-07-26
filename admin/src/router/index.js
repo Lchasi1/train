@@ -33,10 +33,11 @@ const routes = [{
             //     {
             //   path: 'sk-token',
             //   component: () => import('../views/main/business/sk-token.vue'),
-            // }, {
-            //   path: 'confirm-order',
-            //   component: () => import('../views/main/business/confirm-order.vue'),
             // },
+            {
+                path: 'confirm-order',
+                component: () => import('../views/main/business/confirm-order.vue'),
+            },
             {
                 path: 'daily-train',
                 component: () => import('../views/main/business/daily-train.vue'),
@@ -44,16 +45,16 @@ const routes = [{
                 path: 'daily-train-station',
                 component: () => import('../views/main/business/daily-train-station.vue'),
             }, {
-              path: 'daily-train-carriage',
-              component: () => import('../views/main/business/daily-train-carriage.vue'),
+                path: 'daily-train-carriage',
+                component: () => import('../views/main/business/daily-train-carriage.vue'),
             },
             {
-              path: 'daily-train-seat',
-              component: () => import('../views/main/business/daily-train-seat.vue'),
+                path: 'daily-train-seat',
+                component: () => import('../views/main/business/daily-train-seat.vue'),
             },
             {
-              path: 'daily-train-ticket',
-              component: () => import('../views/main/business/daily-train-ticket.vue'),
+                path: 'daily-train-ticket',
+                component: () => import('../views/main/business/daily-train-ticket.vue'),
             }
         ]
     }
