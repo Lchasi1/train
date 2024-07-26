@@ -167,6 +167,7 @@ create table `daily_train_seat`
 ) engine = innodb
   default charset = utf8mb4 comment ='每日座位';
 
+# 对于相对固定的枚举类型，就可以用行转列来展示，目的就是方便查询，适合读多写少的场景  视图 ：写一个程序/逻辑，让数据库完成数据的填充。存储过程：
 drop table if exists `daily_train_ticket`;
 create table `daily_train_ticket`
 (
