@@ -1,10 +1,9 @@
 package com.Lchasi.train.business.controller.admin;
 
-import com.Lchasi.train.common.context.LoginMemberContext;
 import com.Lchasi.train.common.resp.CommonResp;
 import com.Lchasi.train.common.resp.PageResp;
 import com.Lchasi.train.business.req.ConfirmOrderQueryReq;
-import com.Lchasi.train.business.req.ConfirmOrderSaveReq;
+import com.Lchasi.train.business.req.ConfirmOrderDoReq;
 import com.Lchasi.train.business.resp.ConfirmOrderQueryResp;
 import com.Lchasi.train.business.service.ConfirmOrderService;
 import jakarta.annotation.Resource;
@@ -20,7 +19,7 @@ public class ConfirmOrderAdminController {
 
     //注册接口
     @PostMapping("/save")
-    public CommonResp<Long> save(@Valid @RequestBody ConfirmOrderSaveReq confirmOrderSaveReq) {
+    public CommonResp<Long> save(@Valid @RequestBody ConfirmOrderDoReq confirmOrderSaveReq) {
         confirmOrderService.save(confirmOrderSaveReq);
         return new CommonResp<>();
     }
