@@ -28,6 +28,16 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!--        远程调用OpenFeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--        openFeign默认使用的是loadBalance的负载均衡器-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+        </dependency>
 
     </dependencies>
 

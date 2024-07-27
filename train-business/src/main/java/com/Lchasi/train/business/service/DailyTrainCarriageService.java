@@ -6,7 +6,9 @@ import cn.hutool.core.date.DateTime;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.core.util.ObjectUtil;
-import com.Lchasi.train.business.domain.*;
+import com.Lchasi.train.business.domain.DailyTrainCarriage;
+import com.Lchasi.train.business.domain.DailyTrainCarriageExample;
+import com.Lchasi.train.business.domain.TrainCarriage;
 import com.Lchasi.train.business.enums.SeatColEnum;
 import com.Lchasi.train.business.mapper.DailyTrainCarriageMapper;
 import com.Lchasi.train.business.req.DailyTrainCarriageQueryReq;
@@ -130,5 +132,10 @@ public class DailyTrainCarriageService {
             dailyTrainCarriageMapper.insert(dailyTrainCarriage);
         }
         log.info("生成日期【{}】车次【{}】的车厢信息结束", DateUtil.formatDate(date), trainCode);
+    }
+    public List<DailyTrainCarriage> selectBySeatType(Date date, String trainCode,String seatType) {
+        DailyTrainCarriageExample dailyTrainCarriageExample = new DailyTrainCarriageExample();
+        dailyTrainCarriageExample.createCriteria().andDateEqualTo(date).andTrainCodeEqualTo(trainCode).andSeatTypeEqualTo(seatType);
+        return dailyTrainCarriageMapper.selectByExample(dailyTrainCarriageExample);
     }
 }
