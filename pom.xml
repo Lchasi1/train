@@ -68,20 +68,20 @@
                 <artifactId>train-common</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
-<!--
-            &lt;!&ndash;                        集成mybatis&ndash;&gt;
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>3.0.0</version>
-            </dependency>
+            <!--
+                        &lt;!&ndash;                        集成mybatis&ndash;&gt;
+                        <dependency>
+                            <groupId>org.mybatis.spring.boot</groupId>
+                            <artifactId>mybatis-spring-boot-starter</artifactId>
+                            <version>3.0.0</version>
+                        </dependency>
 
-            &lt;!&ndash;                    集成mysql连接&ndash;&gt;
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.32</version>
-            </dependency>-->
+                        &lt;!&ndash;                    集成mysql连接&ndash;&gt;
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>8.0.32</version>
+                        </dependency>-->
 
             <!--                 MyBatis Plus-->
             <dependency>
@@ -111,13 +111,21 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.26</version> <!-- 版本号根据需要选择最新的 -->
-<!--                <scope>provided</scope>-->
+                <!--                <scope>provided</scope>-->
             </dependency>
-<!--            mybatis 实现分页功能的插件-->
+            <!--            mybatis 实现分页功能的插件-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>2.1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2023.0.1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
         </dependencies>

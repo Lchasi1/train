@@ -443,7 +443,8 @@ export default defineComponent({
      */
     const loadImageCode = () => {
       imageCodeToken.value = Tool.uuid(8);
-      imageCodeSrc.value = process.env.VUE_APP_SERVER + '/business/kaptcha/image-code/' + imageCodeToken.value;
+      // imageCodeSrc.value = process.env.VUE_APP_SERVER + '/business/kaptcha/image-code/' + imageCodeToken.value;
+      imageCodeSrc.value = '1';
     };
 
     const showImageCodeModal = () => {
@@ -478,13 +479,17 @@ export default defineComponent({
      * 校验第一层验证码
      */
     const validFirstImageCode = () => {
-      if (parseInt(firstImageCodeTarget.value) === parseInt(firstImageCodeSourceA.value + firstImageCodeSourceB.value)) {
+      // if (parseInt(firstImageCodeTarget.value) === parseInt(firstImageCodeSourceA.value + firstImageCodeSourceB.value)) {
+      //   // 第一层验证通过
+      //   firstImageCodeModalVisible.value = false;
+      //   showImageCodeModal();
+      // } else {
+      //   notification.error({description: '验证码错误'});
+      // }
+
         // 第一层验证通过
         firstImageCodeModalVisible.value = false;
         showImageCodeModal();
-      } else {
-        notification.error({description: '验证码错误'});
-      }
     };
 
     /**
