@@ -24,6 +24,8 @@ import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +46,7 @@ public class DailyTrainTicketService {
 
     @Resource
     private DailyTrainSeatService dailyTrainSeatService;
+
     /**
      * 会员端保存信息，以及注册的更改信息
      *
@@ -70,6 +73,13 @@ public class DailyTrainTicketService {
      *
      * @param req
      */
+    @CachePut(value = "DailyTrainTicketService.queryList")
+    public PageResp<DailyTrainTicketQueryResp> queryList2(DailyTrainTicketQueryReq req) {
+        return queryList(req);
+    }
+
+    @Cacheable(value = "DailyTrainTicketService.queryList")
+//cacheName  开辟了一块空间，根据不同的请求参数，空间内会缓存多个结果，会根据请求参数生产一个key，需要对请求参数生产hashcode和equals方法，用于生产key
     public PageResp<DailyTrainTicketQueryResp> queryList(DailyTrainTicketQueryReq req) {
         DailyTrainTicketExample dailyTrainTicketExample = new DailyTrainTicketExample();
         dailyTrainTicketExample.setOrderByClause("`date` desc, start_time asc, train_code asc, `start_index` asc, `end_index` asc");
@@ -114,7 +124,7 @@ public class DailyTrainTicketService {
     }
 
     @Transactional
-    public void genDaily(DailyTrain dailyTrain,Date date, String trainCode) {
+    public void genDaily(DailyTrain dailyTrain, Date date, String trainCode) {
         log.info("生成日期【{}】车次【{}】的车站信息开始", DateUtil.formatDate(date), trainCode);
 
         // 删除某日某车次的余票信息
@@ -140,7 +150,7 @@ public class DailyTrainTicketService {
             for (int j = i + 1; j < stationList.size(); j++) {
                 TrainStation trainStationEnd = stationList.get(j);
                 //里程之和
-                sumKm =  sumKm.add(trainStationEnd.getKm());
+                sumKm = sumKm.add(trainStationEnd.getKm());
                 DailyTrainTicket dailyTrainTicket = new DailyTrainTicket();
 
                 dailyTrainTicket.setId(SnowUtil.getSnowflakeNextId());
@@ -155,10 +165,10 @@ public class DailyTrainTicketService {
                 dailyTrainTicket.setEndPinyin(trainStationEnd.getNamePinyin());
                 dailyTrainTicket.setEndTime(trainStationEnd.getInTime());
                 dailyTrainTicket.setEndIndex(trainStationEnd.getIndex());
-                int ydz = dailyTrainSeatService.countSeat(date,trainCode, SeatTypeEnum.YDZ.getCode());
-                int edz = dailyTrainSeatService.countSeat(date,trainCode, SeatTypeEnum.EDZ.getCode());
-                int rw = dailyTrainSeatService.countSeat(date,trainCode, SeatTypeEnum.RW.getCode());
-                int yw = dailyTrainSeatService.countSeat(date,trainCode, SeatTypeEnum.YW.getCode());
+                int ydz = dailyTrainSeatService.countSeat(date, trainCode, SeatTypeEnum.YDZ.getCode());
+                int edz = dailyTrainSeatService.countSeat(date, trainCode, SeatTypeEnum.EDZ.getCode());
+                int rw = dailyTrainSeatService.countSeat(date, trainCode, SeatTypeEnum.RW.getCode());
+                int yw = dailyTrainSeatService.countSeat(date, trainCode, SeatTypeEnum.YW.getCode());
                 //票价 = 里程之和 * 座位单价*车次类型系数
                 String trainType = dailyTrain.getType();
                 BigDecimal priceRate = EnumUtil.getFieldBy(TrainTypeEnum::getPriceRate, TrainTypeEnum::getCode, trainType);
