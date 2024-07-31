@@ -67,20 +67,24 @@ public class DailyTrainTicketService {
 
 
     }
+    @CachePut(value = "DailyTrainTicketService.queryList")
+    public PageResp<DailyTrainTicketQueryResp> queryList2(DailyTrainTicketQueryReq req) {
+        return queryList(req);
+    }
+    @Cacheable(value = "DailyTrainTicketService.queryList3")
+    public PageResp<DailyTrainTicketQueryResp> queryList3(DailyTrainTicketQueryReq req) {
+        return null;
+    }
 
     /**
      * 会员端和控制台端共用同一个接口，控制台端查询所以用户，会员端查看自己，并实现分页功能
      *
      * @param req
      */
-    @CachePut(value = "DailyTrainTicketService.queryList")
-    public PageResp<DailyTrainTicketQueryResp> queryList2(DailyTrainTicketQueryReq req) {
-        return queryList(req);
-    }
-
     @Cacheable(value = "DailyTrainTicketService.queryList")
 //cacheName  开辟了一块空间，根据不同的请求参数，空间内会缓存多个结果，会根据请求参数生产一个key，需要对请求参数生产hashcode和equals方法，用于生产key
     public PageResp<DailyTrainTicketQueryResp> queryList(DailyTrainTicketQueryReq req) {
+        //增加啊抢锁的动作，抢到则请求，抢不到则失败
         DailyTrainTicketExample dailyTrainTicketExample = new DailyTrainTicketExample();
         dailyTrainTicketExample.setOrderByClause("`date` desc, start_time asc, train_code asc, `start_index` asc, `end_index` asc");
         DailyTrainTicketExample.Criteria criteria = dailyTrainTicketExample.createCriteria();

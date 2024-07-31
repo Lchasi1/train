@@ -13,6 +13,7 @@ import com.Lchasi.train.member.req.TicketQueryReq;
 import com.Lchasi.train.member.resp.TicketQueryResp;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class TicketService {
      * @param memberTicketReq
      */
     public void save(MemberTicketReq memberTicketReq) {
+        log.info("seata全局事务ID save: {}", RootContext.getXID());
         DateTime now = DateTime.now();
         Ticket ticket = BeanUtil.copyProperties(memberTicketReq, Ticket.class);
             ticket.setId(SnowUtil.getSnowflakeNextId());
