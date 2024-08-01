@@ -26,6 +26,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -56,6 +58,9 @@ public class ConfirmOrderService {
 
     @Autowired
     private StringRedisTemplate redisTemplate;
+
+    @Autowired
+    private RedissonClient redissonClient;
 
     public void save(ConfirmOrderDoReq confirmOrderSaveReq) {
         DateTime now = DateTime.now();
@@ -111,17 +116,45 @@ public class ConfirmOrderService {
 
     public void doConfirm(ConfirmOrderDoReq req) {
         //省略业务数据校验，如：车次是否存在，余票是否存在，车次是否在有限期内，tickets条数>0，同乘客同车次是否已买过
-        String lockKey = req.getDate()+"-"+req.getTrainCode();//以同一天同一车次的票作为key
-        Boolean setIfAbsent = redisTemplate.opsForValue().setIfAbsent(lockKey, lockKey, 5, TimeUnit.SECONDS);//判断key是否存在，如果存在则失败，不存在则放入
+        String lockKey = req.getDate() + "-" + req.getTrainCode();//以同一天同一车次的票作为key
+//        Boolean setIfAbsent = redisTemplate.opsForValue().setIfAbsent(lockKey, lockKey, 5, TimeUnit.SECONDS);//判断key是否存在，如果存在则失败，不存在则放入
+//
+//            if (setIfAbsent) {
+//                log.info("拿到锁");
+//            }else{
+//                //只是每抢到锁，并不知道票抢完了没，所以提示稍后再试
+//                log.info("没有拿到锁");
+//                throw new BusinessException(BusinessExceptionEnum.CONFIRM_ORDER_LOCK_FAIL);
+//            }
+        // 使用redisson，自带看门狗
+        RLock lock = null;
+        try {
+            lock = redissonClient.getLock(lockKey);
+            // 红锁的写法
+            // RedissonRedLock redissonRedLock = new RedissonRedLock(lock, lock, lock);
+            // boolean tryLock1 = redissonRedLock.tryLock(0, TimeUnit.SECONDS);
 
-            if (setIfAbsent) {
-                log.info("拿到锁");
-            }else{
-                //只是每抢到锁，并不知道票抢完了没，所以提示稍后再试
-                log.info("没有拿到锁");
+            /**
+             waitTime – the maximum time to acquire the lock 等待获取锁时间(最大尝试获得锁的时间)，超时返回false
+             leaseTime – lease time 锁时长，即n秒后自动释放锁
+             time unit – time unit 时间单位
+             */
+            // boolean tryLock = lock.tryLock(30, 10, TimeUnit.SECONDS); // 不带看门狗
+            boolean tryLock = lock.tryLock(0, TimeUnit.SECONDS); // 带看门狗
+            if (tryLock) {
+                log.info("恭喜，抢到锁了！");
+                // 可以把下面这段放开，只用一个线程来测试，看看redisson的看门狗效果
+                // for (int i = 0; i < 30; i++) {
+                //     Long expire = redisTemplate.opsForValue().getOperations().getExpire(lockKey);
+                //     LOG.info("锁过期时间还有：{}", expire);
+                //     Thread.sleep(1000);
+                // }
+            } else {
+                // 只是没抢到锁，并不知道票抢完了没，所以提示稍候再试
+                log.info("很遗憾，没抢到锁");
                 throw new BusinessException(BusinessExceptionEnum.CONFIRM_ORDER_LOCK_FAIL);
             }
-        try {
+
             //保存确认订单表，状态初始
             DateTime date = DateTime.now();
             ConfirmOrder confirmOrder = new ConfirmOrder();
@@ -146,7 +179,7 @@ public class ConfirmOrderService {
             DailyTrainTicket dailyTrainTicket = dailyTrainTicketService.selectByUnique(date, trainCode, start, end);
             log.info("查出余票记录：{}", dailyTrainTicket);
             //扣减余票数量，并判断余票是否足够
-            reduceTickets(req,dailyTrainTicket);
+            reduceTickets(req, dailyTrainTicket);
 
             // 最终的选座结果
             List<DailyTrainSeat> finalSeatList = new ArrayList<>();
@@ -155,7 +188,7 @@ public class ConfirmOrderService {
             //比如选择的是C1.D2则偏移量是：[0,5]
             //比如选择的是A1,B1,C1则偏移量是：[0,1,2]
             ConfirmOrderTicketReq ticketReq0 = tickets.get(0);
-            if(StrUtil.isNotBlank(ticketReq0.getSeat())){
+            if (StrUtil.isNotBlank(ticketReq0.getSeat())) {
                 log.info("本次购票有选座");
                 //查出本次选座的座位类型都有哪些列，用于计算所选座位与第一个作为的偏移量
                 List<SeatColEnum> colEnumList = SeatColEnum.getColsByType(ticketReq0.getSeatTypeCode());
@@ -194,7 +227,7 @@ public class ConfirmOrderService {
                         dailyTrainTicket.getEndIndex()
                 );
 
-            }else{
+            } else {
                 log.info("本次购票没有选座");
                 for (ConfirmOrderTicketReq ticketReq : tickets) {
                     getSeat(finalSeatList,
@@ -221,13 +254,18 @@ public class ConfirmOrderService {
                 log.error("保存购票信息失败", e);
                 throw new BusinessException(BusinessExceptionEnum.CONFIRM_ORDER_EXCEPTION);
             }
-        }  finally {
+        } catch (InterruptedException e) {
+            log.error("购票异常",e);
+        } finally {
             //删除分布式锁
             log.info("购票流程结束，释放锁");
-            redisTemplate.delete(lockKey);
+            if (lock != null && lock.isHeldByCurrentThread()) {
+                lock.unlock();
+            }
         }
 
     }
+
     private static void reduceTickets(ConfirmOrderDoReq req, DailyTrainTicket dailyTrainTicket) {
         for (ConfirmOrderTicketReq ticketReq : req.getTickets()) {
             String seatTypeCode = ticketReq.getSeatTypeCode();
@@ -267,6 +305,7 @@ public class ConfirmOrderService {
 
     /**
      * 挑座位，如果有选座，则一次性挑完，如果无选座，则一个一个挑
+     *
      * @param finalSeatList
      * @param date
      * @param trainCode
@@ -294,7 +333,7 @@ public class ConfirmOrderService {
 
                 // 判断当前座位不能被选中过
                 boolean alreadyChooseFlag = false;
-                for (DailyTrainSeat finalSeat : finalSeatList){
+                for (DailyTrainSeat finalSeat : finalSeatList) {
                     if (finalSeat.getId().equals(dailyTrainSeat.getId())) {
                         alreadyChooseFlag = true;
                         break;
@@ -364,11 +403,12 @@ public class ConfirmOrderService {
             }
         }
     }
+
     /**
      * 计算某座位在区间内是否可卖
      * 例：sell=10001，本次购买区间站1~4，则区间已售000
      * 全部是0，表示这个区间可买；只要有1，就表示区间内已售过票
-     *
+     * <p>
      * 选中后，要计算购票后的sell，比如原来是10001，本次购买区间站1~4
      * 方案：构造本次购票造成的售卖信息01110，和原sell 10001按位与，最终得到11111
      */
