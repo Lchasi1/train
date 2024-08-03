@@ -49,6 +49,9 @@ public class DailyTrainService {
     @Resource
     private DailyTrainTicketService dailyTrainTicketService;
 
+    @Resource
+    private SkTokenService skTokenService;
+
     /**
      * 会员端保存信息，以及注册的更改信息
      *
@@ -154,6 +157,8 @@ public class DailyTrainService {
 
         //生产该车次的余票数据
         dailyTrainTicketService.genDaily(dailyTrain,date,train.getCode());
+        //生成令牌余量数据
+        skTokenService.genDaily(date,train.getCode());
         log.info("生成日期【{}】车次【{}】的车站信息结束", DateUtil.formatDate(date), train.getCode());
     }
 }

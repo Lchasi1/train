@@ -8,6 +8,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.Lchasi.train.business.domain.*;
 import com.Lchasi.train.business.mapper.DailyTrainSeatMapper;
+import com.Lchasi.train.business.mapper.DailyTrainStationMapper;
 import com.Lchasi.train.business.req.DailyTrainSeatQueryReq;
 import com.Lchasi.train.business.req.DailyTrainSeatSaveReq;
 import com.Lchasi.train.business.resp.DailyTrainSeatQueryResp;
@@ -36,6 +37,10 @@ public class DailyTrainSeatService {
 
     @Resource
     private TrainStationService trainStationService;
+
+    @Resource
+    private DailyTrainStationMapper dailyTrainStationMapper;
+
     /**
      * 会员端保存信息，以及注册的更改信息
      *
@@ -127,6 +132,9 @@ public class DailyTrainSeatService {
         }
         log.info("生成日期【{}】车次【{}】的座位信息结束", DateUtil.formatDate(date), trainCode);
     }
+    public int countSeat(Date date,String trainCode){
+        return countSeat(date,trainCode,null);
+    }
     public int countSeat(Date date, String trainCode, String seatType) {
         DailyTrainSeatExample example = new DailyTrainSeatExample();
         example.setOrderByClause("carriage_seat_index asc");
@@ -151,5 +159,13 @@ public class DailyTrainSeatService {
                 .andCarriageIndexEqualTo(carriageIndex);
         return dailyTrainSeatMapper.selectByExample(example);
     }
-
+    /**
+     * 按车次查询全部车站
+     */
+    public long countByTrainCode(Date date, String trainCode) {
+        DailyTrainStationExample example = new DailyTrainStationExample();
+        example.createCriteria().andDateEqualTo(date).andTrainCodeEqualTo(trainCode);
+        long stationCount = dailyTrainStationMapper.countByExample(example);
+        return stationCount;
+    }
 }
