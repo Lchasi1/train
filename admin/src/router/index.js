@@ -30,10 +30,10 @@ const routes = [{
     }, {
         path: 'business/',
         children: [
-            //     {
-            //   path: 'sk-token',
-            //   component: () => import('../views/main/business/sk-token.vue'),
-            // },
+            {
+                path: 'sk-token',
+                component: () => import('../views/main/business/sk-token.vue'),
+            },
             {
                 path: 'confirm-order',
                 component: () => import('../views/main/business/confirm-order.vue'),
@@ -65,12 +65,12 @@ const routes = [{
                 component: () => import('../views/main/batch/job.vue')
             }]
         },
-          {
-          path: 'member/',
-          children: [{
-            path: 'ticket',
-            component: () => import('../views/main/member/ticket.vue')
-          }]
+        {
+            path: 'member/',
+            children: [{
+                path: 'ticket',
+                component: () => import('../views/main/member/ticket.vue')
+            }]
         }
     ]
 }, {
