@@ -7,6 +7,7 @@ import cn.hutool.core.util.ObjectUtil;
 import com.Lchasi.train.business.domain.SkToken;
 import com.Lchasi.train.business.domain.SkTokenExample;
 import com.Lchasi.train.business.mapper.SkTokenMapper;
+import com.Lchasi.train.business.mapper.cust.SkTokenMapperCust;
 import com.Lchasi.train.business.req.SkTokenQueryReq;
 import com.Lchasi.train.business.req.SkTokenSaveReq;
 import com.Lchasi.train.business.resp.SkTokenQueryResp;
@@ -17,10 +18,12 @@ import com.github.pagehelper.PageInfo;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
@@ -34,6 +37,12 @@ public class SkTokenService {
 
     @Resource
     private DailyTrainStationService dailyTrainStationService;
+
+    @Resource
+    private SkTokenMapperCust skTokenMapperCust;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * 初始化
@@ -119,5 +128,30 @@ public class SkTokenService {
      */
     public void delete(Long id) {
         skTokenMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 获取令牌
+     * @param date
+     * @param trainCode
+     * @return
+     */
+    public boolean validSkToken(Date date, String trainCode,Long memberId){
+        log.info("会员[{}] 获取日期[{}] 车次[{}]的令牌开始",memberId,DateUtil.formatDate(date),trainCode);
+        //先获取令牌锁，再校验令牌余量，防止机器人抢票，lockKey就是令牌,用来表示[谁能做什么]的一个凭证
+        String lockKey = DateUtil.formatDate(date)+"-"+trainCode+"-"+memberId;
+        Boolean setIfAbsent = redisTemplate.opsForValue().setIfAbsent(lockKey, lockKey, 5, TimeUnit.SECONDS);
+        if(setIfAbsent) {
+            log.info("恭喜，抢到令牌锁了！ lockKey:{}",lockKey);
+        }else {
+            log.info("没有令牌锁 lockKey:{}",lockKey);
+            return false;
+        }
+        int updateCount = skTokenMapperCust.decrease(date, trainCode, 1);
+        if(updateCount > 0) {
+            return true;
+        }else {
+            return false;
+        }
     }
 }

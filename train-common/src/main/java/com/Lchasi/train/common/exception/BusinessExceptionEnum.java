@@ -13,6 +13,7 @@ public enum BusinessExceptionEnum {
     CONFIRM_ORDER_EXCEPTION("服务器忙请稍后重试"),
     CONFIRM_ORDER_LOCK_FAIL("当前抢票人数多，请稍后重试"),
     CONFIRM_ORDER_TICKET_COUNT_ERROR("余票不足"),
+    CONFIRM_ORDER_SK_TOKEN_FAIL("票已经卖光"),
     CONFIRM_ORDER_Flow_EXCEPTION("当前抢票人数多，请稍后重试");
 
 
