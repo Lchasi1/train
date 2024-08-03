@@ -9,6 +9,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.Lchasi.train.business.domain.*;
 import com.Lchasi.train.business.enums.ConfirmOrderStatusEnum;
+import com.Lchasi.train.business.enums.RedisKeyPreEnum;
 import com.Lchasi.train.business.enums.SeatColEnum;
 import com.Lchasi.train.business.enums.SeatTypeEnum;
 import com.Lchasi.train.business.mapper.ConfirmOrderMapper;
@@ -129,7 +130,7 @@ public class ConfirmOrderService {
             throw new BusinessException(BusinessExceptionEnum.CONFIRM_ORDER_SK_TOKEN_FAIL);
         }
         //省略业务数据校验，如：车次是否存在，余票是否存在，车次是否在有限期内，tickets条数>0，同乘客同车次是否已买过
-        String lockKey = req.getDate() + "-" + req.getTrainCode();//以同一天同一车次的票作为key
+        String lockKey = RedisKeyPreEnum.CONFIRM_ORDER+"-"+ req.getDate() + "-" + req.getTrainCode();//以同一天同一车次的票作为key
         Boolean setIfAbsent = redisTemplate.opsForValue().setIfAbsent(lockKey, lockKey, 5, TimeUnit.SECONDS);//判断key是否存在，如果存在则失败，不存在则放入
 
             if (setIfAbsent) {
